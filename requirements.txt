@@ -16,3 +16,14 @@ WTForms==2.1
 bs4
 requests
 html5lib==1.0.1
+PyPDF2
+img2pdf
+clipboard
+bson
+flask-socketio
+eventlet
+pymongo
+flask-login
+Pillow==8.1.0
+urllib3==1.26.2
+Flask-QRcode==3.0.0
