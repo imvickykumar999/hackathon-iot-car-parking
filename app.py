@@ -10,7 +10,7 @@ def index():
     result = firebase1.get('/led1', None)
     list_result = list(result.values())[-11:-1]
     is_occupied = sum(list_result)/10
-    return "{}".format(is_occupied)
+    return "{} means car is Not at parking lot".format(is_occupied)
 
 if __name__ == '__main__':
     app.run(debug=True)
