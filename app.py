@@ -53,21 +53,30 @@ def allowed_file(filename):
 def iotcar():
 
     from firebase import firebase
+    firebase_obj = firebase.FirebaseApplication('https://iot-car-parking-da247-default-rtdb.firebaseio.com/', None)
 
-    firebase1 = firebase.FirebaseApplication('https://iot-car-parking-da247-default-rtdb.firebaseio.com/', None)
-    result = firebase1.get('/slot1', None)
+    result1 = firebase_obj.get('/slot1', None)
+    data1="{}".format(result1)
 
-    list_result = list(result.values())[-11:-1]
-    is_occupied = sum(list_result)/10
+    result2 = firebase_obj.get('/slot2', None)
+    data2="{}".format(result2)
 
-    if is_occupied == 1.0:
-        img="https://thumbs.dreamstime.com/b/parking-lot-area-car-road-sign-concept-isoometric-cartoon-vector-illustration-173851550.jpg"
+    # list_result = list(result.values())[-11:-1]
+    # is_occupied = sum(list_result)/10
+
+    if result1 == 1:
+        img1="../static/screenshots/present.png"
     else:
-        img="https://thumbs.dreamstime.com/z/parking-lot-icon-cartoon-style-white-background-parking-lot-icon-cartoon-style-125892211.jpg"
+        img1="../static/screenshots/absent.png"
+
+    if result2 == 1:
+        img2="../static/screenshots/present.png"
+    else:
+        img2="../static/screenshots/absent.png"
 
     return render_template("iotcar.html",
-                            data="{}".format(is_occupied),
-                            img=img,
+                            data=[data1, data2],
+                            img=[img1, img2],
                             len=2
                           )
 
