@@ -15,8 +15,8 @@ int val1, val2;
 #define WIFI_SSID "Vicky"
 #define WIFI_PASSWORD "oyevicks"
 
-#define FIREBASE_HOST "iot-car-parking-da247-default-rtdb.firebaseio.com"
-#define FIREBASE_AUTH "pW02ZSkaUa9WxIPykhmauGp0WsIqFpj1cTkZfEbC"
+#define FIREBASE_HOST "************************************"
+#define FIREBASE_AUTH "************************************"
 
 FirebaseData firebaseData;
 
