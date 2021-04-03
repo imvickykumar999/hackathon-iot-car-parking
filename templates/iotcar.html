@@ -19,7 +19,7 @@
 
           <center>
             <!-- <a href="https://inshorts.com/en/read"> -->
-            <a href="https://github.com/imvickykumar999/hackathon-iot-car-parking/tree/main">
+            <a href="https://vixtest.herokuapp.com/">
               <h1 style="color:red;">
                 <strong>
                   IOT Car Parking System
@@ -56,21 +56,21 @@
                       <h1 style="color:red;" class="card-title">Slot number : {{x+1}}</h1>
                       <br>
                         <h3>
-                          <p class="card-text">PRESENT</p>
+                          <p class="card-text">Car Number Plate : {{car[x]}}</p>
                         </h3>
                       <br>
 
-                          <a href="{{img[x]}}" class="btn btn-primary">{{data[x]}}</a>
+                          <a href="{{img[x]}}" class="btn btn-primary">PRESENT</a>
                       {% else %}
 
                       <h1 style="color:red;" class="card-title">Slot number : {{x+1}}</h1>
                       <br>
                         <h3>
-                          <p class="card-text">ABSENT</p>
+                          <p class="card-text">Slot is Vacant</p>
                         </h3>
                       <br>
 
-                          <a href="{{img[x]}}" class="btn btn-primary">{{data[x]}}</a>
+                          <a href="{{img[x]}}" class="btn btn-primary">ABSENT</a>
                       {% endif %}
 
                     </center>
