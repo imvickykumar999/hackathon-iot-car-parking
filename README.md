@@ -1,6 +1,6 @@
 # >>> [IOT Car Parking System](https://imvickykumar999.herokuapp.com/iotcar), Chat Room, Share Files, Read News, Morse Converter ...and many more multi-functional website.
 
-## >>> Run `heroku logs -t -a vixtest` in CMD to check errors in deployed site.
+## >>> Run `heroku logs -t -a imvickykumar999` in CMD to check errors in deployed site.
 
 [![image](screenshot.png)](https://https://imvickykumar999.herokuapp.com/iotcar)
 
