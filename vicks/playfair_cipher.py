@@ -13,7 +13,7 @@ def encrypt(key = 'monarchy', text = "instruments"):
     # text = "instruments"
     # text = input('\nEnter text : ')
     plain_text = text.replace(' ', '')
-    plain_text = list(text.upper())
+    plain_text = list(plain_text.upper())
 
     if len(plain_text)%2:
         plain_text+='Z'
