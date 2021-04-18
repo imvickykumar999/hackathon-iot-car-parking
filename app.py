@@ -108,9 +108,10 @@ def share():
 @app.route("/playfair_cipher")
 def playfair_cipher():
 
-    data0 = "Input Key Here"
-    data1 = "Input Text Here"
-    data2 = "Encrypted Text Here"
+    data0 = "security, monarchy"
+    data1 = "eiioqoyldc, instruments"
+    data2 = "stalxlings, gatlmzclrqtx"
+    
     return render_template("playfair_cipher.html",
                             data0=data0,
                             data1=data1,
@@ -125,9 +126,6 @@ def converted_playfair_cipher():
     key = request.form['playfair_cipher_key']
     text = request.form['playfair_cipher_text']
     data = vix.encrypt(key, text)
-
-    # for i in range(data[0]):
-    #     print()
 
     return render_template("playfair_cipher.html",
                             data0=key.upper(),
