@@ -1,4 +1,4 @@
-# [IOT Car Parking System](https://photos.app.goo.gl/YhqWfpfwqwSHigLWA)
+# [IOT Car Parking Android App](https://github.com/imvickykumar999/web2app#output)
 
 ## >>> Run `heroku logs -t -a imvickykumar999` in CMD to check [errors](https://github.com/imvickykumar999/hackathon-iot-car-parking/blob/main/heroku%20logs.png?raw=true) in deployed site.
 
