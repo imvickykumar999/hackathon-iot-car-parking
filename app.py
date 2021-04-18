@@ -103,6 +103,41 @@ def iotcar():
 def share():
     return render_template("share.html")
 
+# --------------------------------------------
+
+@app.route("/playfair_cipher")
+def playfair_cipher():
+
+    data0 = "Input Key Here"
+    data1 = "Input Text Here"
+    data2 = "Encrypted Text Here"
+    return render_template("playfair_cipher.html",
+                            data0=data0,
+                            data1=data1,
+                            data2=data2
+                            )
+
+
+@app.route('/converted_playfair_cipher', methods=['POST'])
+def converted_playfair_cipher():
+
+    from vicks import playfair_cipher as vix
+    key = request.form['playfair_cipher_key']
+    text = request.form['playfair_cipher_text']
+    data = vix.encrypt(key, text)
+
+    # for i in range(data[0]):
+    #     print()
+
+    return render_template("playfair_cipher.html",
+                            data0=key.upper(),
+                            data1=data[0],
+                            data2=data[1]
+                            )
+
+# -------------------------------------------------
+
+
 @app.route("/qrcode")
 def qrcode():
     data = "https://appsgeyser.io/13031887/VickService"
