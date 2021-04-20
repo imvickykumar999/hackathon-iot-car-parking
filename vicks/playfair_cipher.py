@@ -4,6 +4,7 @@ def encrypt(key = 'monarchy', text = "instruments"):
     # key = 'monarchy'
     # key = input('\nEnter key : ')
     key = list(key.upper())
+    key = sorted(set(key), key=key.index)
     # key
 
     import string
