@@ -19,6 +19,7 @@ def encrypt(key = 'monarchy', text = "instruments"):
     if len(plain_text)%2:
         plain_text+='Z'
 
+    plain_text = [sub for sub in plain_text if sub.isalpha()]
     # plain_text
 
     box = set(alpha) - set(key)
