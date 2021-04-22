@@ -51,7 +51,7 @@ def encrypt(key = 'monarchy', text = "instruments"):
     box = np.array(box)
     key = np.array(key)
 
-    # matrix
+    print(matrix)
 
     text2d = [[0 for i in range(2)] for j in range(len(plain_text)//2)]
     text2d
