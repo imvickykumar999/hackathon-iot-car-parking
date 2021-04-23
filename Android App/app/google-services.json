@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "400063839584",
+    "firebase_url": "https://led-blink-wifi-default-rtdb.firebaseio.com",
+    "project_id": "led-blink-wifi",
+    "storage_bucket": "led-blink-wifi.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:400063839584:android:3742a358adc3180813f205",
+        "android_client_info": {
+          "package_name": "com.example.iotapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "400063839584-roae9j95uds7m5dcmab05jc58ul8sm5f.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.iotapp",
+            "certificate_hash": "4959dacdbba77726fbb4eaab5cee0b50d133e2d4"
+          }
+        },
+        {
+          "client_id": "400063839584-6sfsjkc7l05a6o80d9qolho8np44ohgf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDn74wg8Ywtg1_9LDQO-klA6bxM6_lxaio"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "400063839584-6sfsjkc7l05a6o80d9qolho8np44ohgf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

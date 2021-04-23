@@ -1,0 +1,80 @@
+{% extends "base.html"%}
+{% block content %}
+
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>Vicks IOT LED</title>
+  </head>
+
+  <body>
+
+    <div class="jumbotron">
+      <div class="container">
+
+        <div class="alert alert-danger" role="alert">
+
+          <center>
+            <!-- <a href="https://inshorts.com/en/read"> -->
+            <a href="https://github.com/imvickykumar999/hackathon-iot-car-parking">
+              <h1 style="color:red;">
+                <strong>
+                  IOT LED Android App
+                  <br>
+                  <em style="color:green;">See Code on GitHub</em>
+                </strong>
+              </h1>
+            </a>
+          </center>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container">
+        <center>
+          <div class="card">
+
+            <a href="https://github.com/imvickykumar999/esp8266-iot-led-android">
+              <img src={{img}} width="400" height="600" alt="switch">
+            </a>
+
+            <div class="card">
+
+              {% if data == '1' %}
+
+              <h1 style="color:red;" class="card-title">Bulb</h1>
+              <br>
+                <h3>
+                  <p class="card-text">Switched ON</p>
+                </h3>
+              <br>
+
+                  <a href="https://github.com/imvickykumar999/esp8266-iot-led-android" class="btn btn-primary">ON</a>
+              {% else %}
+
+              <h1 style="color:red;" class="card-title">Bulb</h1>
+              <br>
+                <h3>
+                  <p class="card-text">Switched OFF</p>
+                </h3>
+              <br>
+
+                  <a href="https://github.com/imvickykumar999/esp8266-iot-led-android" class="btn btn-primary">OFF</a>
+              {% endif %}
+
+            </div>
+
+          </div>
+        </center>
+      </div>
+    </div>
+
+  </body>
+</html>
+
+{% endblock %}

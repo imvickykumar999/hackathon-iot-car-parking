@@ -52,7 +52,7 @@ def allowed_file(filename):
 @app.route('/iotcar')
 def iotcar():
 
-    from firebase import firebase
+    from esp8266_firebase_led.firebase import firebase
     firebase_obj = firebase.FirebaseApplication('https://iot-car-parking-da247-default-rtdb.firebaseio.com/', None)
 
     result1 = firebase_obj.get('/slot1', None)
@@ -99,9 +99,29 @@ def iotcar():
     #                         # len=2
     #                       )
 
-@app.route("/")
+@app.route("/share")
 def share():
     return render_template("share.html")
+
+
+@app.route('/')
+def iotled():
+
+    from esp8266_firebase_led.firebase import firebase
+    firebase_obj = firebase.FirebaseApplication('https://led-blink-wifi-default-rtdb.firebaseio.com/', None)
+
+    result1 = firebase_obj.get('/led1', None)
+    data1="{}".format(result1)
+
+    if data1 == '1':
+        img = 'static/logo/bulbon.jpg'
+    else:
+        img = '../static/logo/bulboff.jpg'
+
+    return render_template("iotled.html",
+                            data=data1,
+                            img = img
+                          )
 
 # --------------------------------------------
 
@@ -111,7 +131,7 @@ def playfair_cipher():
     data0 = "security, monarchy"
     data1 = "eiioqoyldc, instruments"
     data2 = "stalxlings, gatlmzclrqtx"
-    
+
     return render_template("playfair_cipher.html",
                             data0=data0,
                             data1=data1,
