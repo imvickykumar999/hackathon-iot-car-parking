@@ -52,7 +52,7 @@ def allowed_file(filename):
 @app.route('/iotcar')
 def iotcar():
 
-    from esp8266_firebase_led.firebase import firebase
+    from firebase import firebase
     firebase_obj = firebase.FirebaseApplication('https://iot-car-parking-da247-default-rtdb.firebaseio.com/', None)
 
     result1 = firebase_obj.get('/slot1', None)
@@ -107,7 +107,7 @@ def share():
 @app.route('/')
 def iotled():
 
-    from esp8266_firebase_led.firebase import firebase
+    from firebase import firebase
     firebase_obj = firebase.FirebaseApplication('https://led-blink-wifi-default-rtdb.firebaseio.com/', None)
 
     result1 = firebase_obj.get('/led1', None)
