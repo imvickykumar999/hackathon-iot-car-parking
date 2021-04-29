@@ -3,7 +3,7 @@ def encrypt(key = 'monarchy', text = "instruments"):
 
     # key = 'monarchy'
     # key = input('\nEnter key : ')
-    key = list(key.upper())
+    key = list(key.upper().replace(' ', ''))
     key = sorted(set(key), key=key.index)
     # key
 
