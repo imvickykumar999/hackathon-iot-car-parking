@@ -103,14 +103,38 @@ def iotcar():
 def share():
     return render_template("share.html")
 
+# -------------------------------------------
 
 @app.route('/')
 def iotled():
 
-    from firebase import firebase
-    firebase_obj = firebase.FirebaseApplication('https://led-blink-wifi-default-rtdb.firebaseio.com/', None)
+    from vicksbase import firebase as vix
+    firebase_obj = vix.FirebaseApplication('https://led-blink-wifi-default-rtdb.firebaseio.com/', None)
 
-    result1 = firebase_obj.get('/led1', None)
+    result1 = firebase_obj.get('led1', None)
+    data1="{}".format(result1)
+
+    if data1 == '1':
+        img = 'static/logo/bulbon.jpg'
+    else:
+        img = '../static/logo/bulboff.jpg'
+
+    return render_template("iotled.html",
+                            data=data1,
+                            img = img
+                          )
+
+
+@app.route('/converted_iotled', methods=['POST'])
+def converted_iotled():
+
+    from vicksbase import firebase as vix
+    firebase_obj = vix.FirebaseApplication('https://led-blink-wifi-default-rtdb.firebaseio.com/', None)
+
+    data = int(request.form['iotled'])
+    firebase_obj.put('/','led1', data)
+
+    result1 = firebase_obj.get('led1', None)
     data1="{}".format(result1)
 
     if data1 == '1':
