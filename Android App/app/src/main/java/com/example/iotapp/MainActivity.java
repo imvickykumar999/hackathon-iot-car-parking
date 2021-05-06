@@ -1,3 +1,8 @@
+
+//https://stackoverflow.com/a/62919369/11493297
+
+//https://console.firebase.google.com/u/0/project/home-automation-336c0/settings/general/android:com.example.iotapp
+
 package com.example.iotapp;
 
 import androidx.annotation.NonNull;
@@ -34,9 +39,7 @@ import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
 
-
-
-    private Button onbutton,offbutton;
+    private Button onbutton, offbutton;
 
     boolean isSwitchOn = false;
 
@@ -54,16 +57,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                    FirebaseDatabase.getInstance().getReference("led1").setValue(1);
+                    FirebaseDatabase.getInstance().getReference("A/B/C/Switch").setValue(1);
                     Toast.makeText(MainActivity.this, "Turned On Led",Toast.LENGTH_LONG).show();
-
-
             }
         });
+
         offbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FirebaseDatabase.getInstance().getReference("led1").setValue(0);
+                FirebaseDatabase.getInstance().getReference("A/B/C/Switch").setValue(0);
                 Toast.makeText(MainActivity.this, "Turned Off Led",Toast.LENGTH_LONG).show();
             }
         });
