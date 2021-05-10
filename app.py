@@ -53,12 +53,12 @@ def allowed_file(filename):
 def iotcar():
 
     from firebase import firebase
-    firebase_obj = firebase.FirebaseApplication('https://home-automation-336c0-default-rtdb.firebaseio.com/', None)
+    firebase_obj = firebase.FirebaseApplication('https://iot-car-parking-da247-default-rtdb.firebaseio.com/', None)
 
-    result1 = firebase_obj.get('A/B/C/Switch', None)
+    result1 = firebase_obj.get('/slot1', None)
     data1="{}".format(result1)
 
-    result2 = firebase_obj.get('A/B/C/Switch', None)
+    result2 = firebase_obj.get('/slot2', None)
     data2="{}".format(result2)
 
     # list_result = list(result.values())[-11:-1]
@@ -109,9 +109,9 @@ def share():
 def iotled():
 
     from vicksbase import firebase as vix
-    firebase_obj = vix.FirebaseApplication('https://led-blink-wifi-default-rtdb.firebaseio.com/', None)
+    firebase_obj = vix.FirebaseApplication('https://home-automation-336c0-default-rtdb.firebaseio.com/', None)
 
-    result1 = firebase_obj.get('led1', None)
+    result1 = firebase_obj.get('A/B/C/Switch', None)
     data1="{}".format(result1)
 
     if data1 == '1':
@@ -129,10 +129,10 @@ def iotled():
 def converted_iotled():
 
     from vicksbase import firebase as vix
-    firebase_obj = vix.FirebaseApplication('https://led-blink-wifi-default-rtdb.firebaseio.com/', None)
+    firebase_obj = vix.FirebaseApplication('https://home-automation-336c0-default-rtdb.firebaseio.com/', None)
 
     data = int(request.form['iotled'])
-    firebase_obj.put('/','led1', data)
+    firebase_obj.put('A/B/C','Switch', data)
 
     result1 = firebase_obj.get('led1', None)
     data1="{}".format(result1)
