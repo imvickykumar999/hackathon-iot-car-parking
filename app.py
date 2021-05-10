@@ -53,12 +53,12 @@ def allowed_file(filename):
 def iotcar():
 
     from firebase import firebase
-    firebase_obj = firebase.FirebaseApplication('https://iot-car-parking-da247-default-rtdb.firebaseio.com/', None)
+    firebase_obj = firebase.FirebaseApplication('https://home-automation-336c0-default-rtdb.firebaseio.com/', None)
 
-    result1 = firebase_obj.get('/slot1', None)
+    result1 = firebase_obj.get('A/B/C/Switch', None)
     data1="{}".format(result1)
 
-    result2 = firebase_obj.get('/slot2', None)
+    result2 = firebase_obj.get('A/B/C/Switch', None)
     data2="{}".format(result2)
 
     # list_result = list(result.values())[-11:-1]
