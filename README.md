@@ -16,3 +16,4 @@
 
 ### Helpful Stackoverflow answers in this this project...
   - https://stackoverflow.com/a/67429430/11493297
+  - https://github.com/eventlet/eventlet/issues/702#issuecomment-833124692
