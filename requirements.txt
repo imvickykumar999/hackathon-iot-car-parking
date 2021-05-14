@@ -29,3 +29,4 @@ urllib3==1.26.2
 Flask-QRcode==3.0.0
 numpy
 imvickykumar999
+adafruit-io
