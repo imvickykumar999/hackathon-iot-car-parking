@@ -21,7 +21,7 @@ img2pdf
 clipboard
 bson
 flask-socketio
-eventlet
+eventlet>=0.31.0
 pymongo
 flask-login
 Pillow==8.1.0
