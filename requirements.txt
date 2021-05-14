@@ -30,3 +30,4 @@ Flask-QRcode==3.0.0
 numpy
 imvickykumar999
 adafruit-io
+gevent
