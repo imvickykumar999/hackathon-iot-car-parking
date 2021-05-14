@@ -103,6 +103,40 @@ def iotcar():
 def share():
     return render_template("share.html")
 
+# ================================================
+
+
+@app.route('/adafruit')
+def adafruit():
+
+    from vicksbase import firebase as vix
+    firebase_obj = vix.FirebaseApplication('https://home-automation-336c0-default-rtdb.firebaseio.com/', None)
+
+    from Adafruit_IO import Client, Data
+
+    aio = Client('imvickykumar999', 'aio_RoKP98Cnjyw6JEHJ05w08di8F6wN')
+    feed = 'ledswitch'
+
+    data = aio.receive(feed).value
+    if data == 'ON':
+        d=1
+    else:
+        d=0
+
+    firebase_obj.put('A/B/C','Switch', d)
+    result1 = firebase_obj.get('A/B/C/Switch', None)
+    data1="{}".format(result1)
+
+    if data1 == '1':
+        img = 'static/logo/bulbon.jpg'
+    else:
+        img = '../static/logo/bulboff.jpg'
+
+    return render_template("adafruit.html",
+                            data=data1,
+                            img = img
+                          )
+
 # -------------------------------------------
 
 @app.route('/')
