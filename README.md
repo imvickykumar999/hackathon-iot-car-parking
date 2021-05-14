@@ -2,6 +2,18 @@
 
 ## >>> Run `heroku logs -t -a imvickykumar999` in CMD to check [errors](https://github.com/imvickykumar999/hackathon-iot-car-parking/blob/main/heroku%20logs.png?raw=true) in [deployed site](https://imvickykumar999.herokuapp.com/iotcar).
 
+# 🔥 Project: Home Automation
+
+    Step by Step to Create Your Own Home Automation Website and Android App using my YouTube Playlist: https://lnkd.in/dPUvESP
+
+    Clone or Download ZIP of GitHub Repository: https://lnkd.in/dvDYGCs
+
+    Home Automation Website: https://lnkd.in/d5zjtAn
+
+    Python Package Index: https://lnkd.in/dkXyxGx
+
+    Tags: #ESP32 || #AndroidApp || #OkGoogle || #Heroku || #Firebase || #Adafruit || #Github || #IFTTT || #Arduino || #PYPI || #HomeAutomation || #Project
+
 [![image](screenshot.png)](https://github.com/imvickykumar999/hackathon-iot-car-parking/blob/main/Screenshots/WhatsApp%20Video%202021-04-24%20at%2004.06.46.mp4?raw=true)
 
 ## >>> These 2 files are large... need to download and put at [proper folder](https://github.com/imvickykumar999/Car-Plate-OCR) manually.
