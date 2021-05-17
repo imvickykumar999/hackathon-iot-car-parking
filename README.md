@@ -22,7 +22,7 @@
 
 ## New Update : [Playfair Cipher Encrypter](https://imvickykumar999.herokuapp.com/playfair_cipher)
 
-## Download [my IOT App](https://github.com/imvickykumar999/home-automation/raw/main/Android/app-debug.apk)
+## Download [my IOT App](https://github.com/imvickykumar999/home-automation/blob/main/Firebase/Android/app-debug.apk)
 
 ## Download [my Car Remote Controller App](https://github.com/imvickykumar999/hackathon-iot-car-parking/raw/main/hackathon/NodeMCU_Car.apk)
 
