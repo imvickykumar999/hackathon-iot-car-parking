@@ -114,7 +114,7 @@ def adafruit():
 
     from Adafruit_IO import Client, Data
 
-    aio = Client('imvickykumar999', 'aio_RoKP98Cnjyw6JEHJ05w08di8F6wN')
+    aio = Client('imvickykumar999', 'aio_rUez595dIZJqRRdHq8zUdy1nefYP')
     feed = 'ledswitch'
 
     data = aio.receive(feed).value
