@@ -60,98 +60,107 @@
 
 <body>
 
-    <div class="jumbotron jumbotron-fluid">
-      <div class="container">
+  <div class="jumbotron jumbotron">
+    <div class="container">
+      <center>
 
-        <div class="alert alert-danger" role="alert">
-          <a href="https://github.com/imvickykumar999/YouTube-Comment-Reader">
-            <h1>
-              <p>YouTube Comment Reader Code on GitHub</p>
-            </h1>
-          </a>
+        <div class="jumbotron jumbotron-fluid">
+          <div class="container">
 
+            <div class="alert alert-danger" role="alert">
+              <a href="https://github.com/imvickykumar999/YouTube-Comment-Reader">
+                <h1>
+                  <p>YouTube Comment Reader Code on GitHub</p>
+                </h1>
+              </a>
+
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
 
-    <form method="post" action="/converted_vickstube">
-
-      <div class="alert alert-primary" role="alert">
-        <center>
-          <h3>
-            <strong>Enter YouTube Video URL : </strong>
-          </h3>
-
-          <input type="text" name="ytc" placeholder="Type here"/>
-          <br><br>
+        <form method="post" action="/converted_vickstube">
 
           <div class="alert alert-danger" role="alert">
-            <input type="image"
-                   src="../static/logo/submit.png"
-                   width="200"
-                   height="60"
-                   alt="submit"/>
+            <center>
+              <h3>
+                <strong>Enter YouTube Video URL : </strong>
+              </h3>
+
+              <input type="text" name="ytc" placeholder="Type here"/>
+              <br><br>
+
+              <div class="alert alert-primary" role="alert">
+                <input type="image"
+                       src="../static/logo/submit.png"
+                       width="200"
+                       height="60"
+                       alt="submit"/>
+              </div>
+
+            </center>
           </div>
 
+          <br><br>
+        </form>
+
         </center>
-      </div>
-
-      <br><br>
-    </form>
-
-
-    <div class="jumbotron">
-      <div class="container">
-
-        <center>
-          <div class="class="video-container"">
-            <iframe
-                    src="https://www.youtube.com/embed/{{vid}}"
-                    frameborder="0"
-                    allow="autoplay; encrypted-media" allowfullscreen>
-            </iframe>
-          </div>
-        </center>
-
       </div>
     </div>
 
+        <div class="jumbotron">
+          <div class="container">
 
-    <div class="jumbotron jumbotron-fluid">
-      <div class="container">
+            <center>
+              <div class="class="video-container"">
+                <iframe
+                        src="https://www.youtube.com/embed/{{vid}}"
+                        frameborder="0"
+                        allow="autoplay; encrypted-media" allowfullscreen>
+                </iframe>
+              </div>
+            </center>
 
-        <center>
-          <strong>
-              <em>
-
-                <div class="alert alert-danger" role="alert">
-                  <h1>Comments</h1>
-                </div>
-
-                {% for key, value in dict.items() %}
-                  <div class="alert alert-warning" role="alert">
-
-                  <h1>{{key}}</h1>
-
-                    {% if value %}
-
-                        {% for i in value %}
-                        <div class="alert alert-primary" role="alert">
-                            <h3>{{i}}</h3>
-                        </div>
-                        {% endfor %}
-
-                    {% endif %}
-                  </div>
-                {% endfor %}
-
-              </em>
-            </strong>
-          </center>
-
+          </div>
         </div>
-      </div>
 
+
+        <div class="jumbotron">
+          <div class="jumbotron jumbotron-fluid">
+
+          <div class="container">
+
+            <center>
+              <strong>
+                  <em>
+
+                    <div class="alert alert-danger" role="alert">
+                      <h1>Comments</h1>
+                    </div>
+
+                    {% for key, value in dict.items() %}
+                      <div class="alert alert-warning" role="alert">
+
+                      <h1>{{key}}</h1>
+
+                        {% if value %}
+
+                            {% for i in value %}
+                            <div class="alert alert-primary" role="alert">
+                                <h3>{{i}}</h3>
+                            </div>
+                            {% endfor %}
+
+                        {% endif %}
+                      </div>
+                    {% endfor %}
+
+                  </em>
+                </strong>
+              </center>
+
+            </div>
+          </div>
+        </div>
 
 </body>
 </html>
