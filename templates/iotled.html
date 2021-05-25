@@ -34,44 +34,45 @@
       </div>
     </div>
 
-    <div class="jumbotron jumbotron-fluid">
-      <div class="container">
-        <center>
+    <div class="jumbotron jumbotron">
+        <div class="jumbotron jumbotron-fluid">
+          <div class="container">
+            <center>
 
-          <div class="card">
+              <div class="card">
 
-            <a href="https://github.com/imvickykumar999/esp8266-iot-led-android">
-              <img src={{img}} width="400" height="600" alt="switch">
-            </a>
+                <a href="https://github.com/imvickykumar999/esp8266-iot-led-android">
+                  <img src={{img}} width="400" height="600" alt="switch">
+                </a>
 
-            <div class="card">
+                <div class="card">
 
-              {% if data == '1' %}
+                  {% if data == '1' %}
 
-              <h1 style="color:red;" class="card-title">Bulb</h1>
-              <br>
-                <h3>
-                  <p class="card-text">Switched ON</p>
-                </h3>
-              <br>
+                  <h1 style="color:red;" class="card-title">Bulb</h1>
+                  <br>
+                    <h3>
+                      <p class="card-text">Switched ON</p>
+                    </h3>
+                  <br>
 
-                  <a href="https://github.com/imvickykumar999/esp8266-iot-led-android" class="btn btn-primary">ON</a>
-              {% else %}
+                      <a href="https://github.com/imvickykumar999/esp8266-iot-led-android" class="btn btn-primary">ON</a>
+                  {% else %}
 
-              <h1 style="color:red;" class="card-title">Bulb</h1>
-              <br>
-                <h3>
-                  <p class="card-text">Switched OFF</p>
-                </h3>
-              <br>
+                  <h1 style="color:red;" class="card-title">Bulb</h1>
+                  <br>
+                    <h3>
+                      <p class="card-text">Switched OFF</p>
+                    </h3>
+                  <br>
 
-                  <a href="https://github.com/imvickykumar999/esp8266-iot-led-android" class="btn btn-primary">OFF</a>
-              {% endif %}
+                      <a href="https://github.com/imvickykumar999/esp8266-iot-led-android" class="btn btn-primary">OFF</a>
+                  {% endif %}
 
-            </div>
+                </div>
+              </div>
 
-          </div>
-
+              <br><br>
 
           <form method="post" action="/converted_iotled">
 
@@ -95,8 +96,6 @@
 
               </center>
             </div>
-
-            <br><br>
           </form>
 
         </center>

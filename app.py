@@ -77,14 +77,14 @@ def iotcar():
     car2 = slot2[i].strip()
 
     if result1 == 1:
-        img1="../static/screenshots/present.png"
+        img1="static/screenshots/present.png"
     else:
-        img1="../static/screenshots/absent.png"
+        img1="static/screenshots/absent.png"
 
     if result2 == 1:
-        img2="../static/screenshots/present.png"
+        img2="static/screenshots/present.png"
     else:
-        img2="../static/screenshots/absent.png"
+        img2="static/screenshots/absent.png"
 
     return render_template("iotcar.html",
                             data=[data1, data2],
@@ -114,7 +114,7 @@ def adafruit():
 
     from Adafruit_IO import Client, Data
 
-    aio = Client('imvickykumar999', 'aio_WJNT25ZWZk4VKbmkR5SjVBPdofXg')
+    aio = Client('imvickykumar999', 'aio_WEVc29bDxpB2iRzXeMCkEgY4NTRW')
     feed = 'ledswitch'
 
     data = aio.receive(feed).value
@@ -130,7 +130,7 @@ def adafruit():
     if data1 == '1':
         img = 'static/logo/bulbon.jpg'
     else:
-        img = '../static/logo/bulboff.jpg'
+        img = 'static/logo/bulboff.jpg'
 
     return render_template("adafruit.html",
                             data=data1,
@@ -151,7 +151,7 @@ def iotled():
     if data1 == '1':
         img = 'static/logo/bulbon.jpg'
     else:
-        img = '../static/logo/bulboff.jpg'
+        img = 'static/logo/bulboff.jpg'
 
     return render_template("iotled.html",
                             data=data1,
@@ -174,7 +174,7 @@ def converted_iotled():
     if data1 == '1':
         img = 'static/logo/bulbon.jpg'
     else:
-        img = '../static/logo/bulboff.jpg'
+        img = 'static/logo/bulboff.jpg'
 
     return render_template("iotled.html",
                             data=data1,
