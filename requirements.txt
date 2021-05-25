@@ -31,3 +31,4 @@ numpy
 imvickykumar999
 adafruit-io
 gevent
+google-api-python-client
