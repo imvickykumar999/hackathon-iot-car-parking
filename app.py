@@ -218,8 +218,8 @@ def converted_playfair_cipher():
 
 @app.route("/qrcode")
 def qrcode():
-    data = "https://appsgeyser.io/13031887/VickService"
-    img = "static/logo/app.jpeg"
+    data = "https://github.com/imvickykumar999/Android-Web-App/blob/main/web2app-master/app/outputs/apk/debug/app-debug.apk"
+    img = "static/logo/link.jpeg"
     return render_template("qrcode.html",
                             data=data,
                             img=img)
