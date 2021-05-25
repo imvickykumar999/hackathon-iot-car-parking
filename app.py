@@ -147,6 +147,7 @@ def iotled():
 
     result1 = firebase_obj.get('A/B/C/Switch', None)
     data1="{}".format(result1)
+    # print(data1)
 
     if data1 == '1':
         img = 'static/logo/bulbon.jpg'
@@ -168,8 +169,9 @@ def converted_iotled():
     data = int(request.form['iotled'])
     firebase_obj.put('A/B/C','Switch', data)
 
-    result1 = firebase_obj.get('led1', None)
+    result1 = firebase_obj.get('A/B/C/Switch', None)
     data1="{}".format(result1)
+    # print(data1)
 
     if data1 == '1':
         img = 'static/logo/bulbon.jpg'
