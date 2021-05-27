@@ -187,14 +187,15 @@ def converted_vickstube():
     from vicks import ytc
 
     url = request.form['ytc']
-
     try:
         s = url.split('/')
 
         if s[2] == 'www.youtube.com':
             vid = s[3].split('=')[1].split('?')[0]
+
         elif s[2] == 'youtu.be':
             vid = s[3].split('?')[0]
+            
         else:
             vid = 'Cpc_rHf1U6g'
             print("Sorry... Code couldn't be extracted !!!")
