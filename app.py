@@ -174,11 +174,12 @@ def converted_report():
 def vickstube():
     from vicks import ytc
 
-    vid = '5bthVn83mhc'
+    vid = 'Cpc_rHf1U6g'
     dict = ytc.comments(vid)
 
     return render_template("ytc.html",
                             dict=dict,
+                            tm=945,
                             vid=vid)
 
 @app.route('/converted_vickstube', methods=['POST'])
@@ -186,20 +187,28 @@ def converted_vickstube():
     from vicks import ytc
 
     url = request.form['ytc']
-    s = url.split('/')
 
-    if s[2] == 'www.youtube.com':
-        vid = s[3].split('=')[1].split('?')[0]
-    elif s[2] == 'youtu.be':
-        vid = s[3].split('?')[0]
-    else:
-        print("Sorry... Code couldn't be extracted !!!")
+    try:
+        s = url.split('/')
+
+        if s[2] == 'www.youtube.com':
+            vid = s[3].split('=')[1].split('?')[0]
+        elif s[2] == 'youtu.be':
+            vid = s[3].split('?')[0]
+        else:
+            vid = 'Cpc_rHf1U6g'
+            print("Sorry... Code couldn't be extracted !!!")
+
+    except Exception as e:
+        vid = 'Cpc_rHf1U6g'
+        print(e)
 
     dict = ytc.comments(vid)
     print(vid)
 
     return render_template("ytc.html",
                             dict=dict,
+                            tm=0,
                             vid=vid)
 
 # ====================================================
