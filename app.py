@@ -195,7 +195,7 @@ def converted_vickstube():
 
         elif s[2] == 'youtu.be':
             vid = s[3].split('?')[0]
-            
+
         else:
             vid = 'Cpc_rHf1U6g'
             print("Sorry... Code couldn't be extracted !!!")
@@ -211,6 +211,45 @@ def converted_vickstube():
                             dict=dict,
                             tm=0,
                             vid=vid)
+
+# ========================================================
+
+
+@app.route("/firechat")
+def firechat():
+
+    from vicks import crud
+    obj1 = crud.vicks('@Hey_Vicks')
+
+    data = obj1.pull('Group/Chat')
+    return render_template("firechat.html",
+                           data = data,
+                           )
+
+
+@app.route('/converted_firechat', methods=['POST'])
+def converted_firechat():
+    from vicks import crud
+
+    credentials = request.form['credentials']
+    person = request.form['person']
+
+    if person == '':
+        obj1 = crud.vicks(credentials)
+    else:
+        # print(credentials)
+        obj1 = crud.vicks(credentials, name = person)
+
+    message = request.form['message']
+    if message == '':
+        obj1.push()
+    else:
+        obj1.push(message)
+
+    data = obj1.pull('Group/Chat')
+    return render_template("firechat.html",
+                           data = data,
+                           )
 
 # ====================================================
 
