@@ -6,54 +6,7 @@
 <head>
     <meta charset="UTF-8">
 
-    <style>
-        * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-      }
-
-      h1 {
-        text-align: center;
-        margin-bottom: 30px;
-        border-bottom: 1px #ccc solid;
-      }
-
-      h2 {
-        margin-top: 20px;
-      }
-
-      button {
-        cursor: pointer;
-        display: block;
-        background: #333;
-        color: #fff;
-        border: 0;
-        border-radius: 5px;
-        padding: 10px 20px;
-        margin: 20px 0;
-      }
-
-      input[type="text"] {
-        border: 1px #ccc solid;
-        width: 300px;
-        padding: 4px;
-        height: 35px;
-        margin-top: 20px;
-      }
-
-      .card {
-        margin: 20px 0;
-        border: #ccc 1px solid;
-        padding: 20px;
-      }
-
-      #output{
-        font-size: 50px;
-        text-align: center;
-      }
-
-    </style>
+    <link rel="stylesheet" type="text/css" href="../static/css/stylesheet.css">
 
   <title>Firebase Chatting</title>
 </head>
@@ -64,13 +17,73 @@
     <div class="jumbotron jumbotron">
       <center>
 
+        <div class="jumbotron jumbotron-fluid">
+          <div class="container">
+
+            <div class="alert alert-danger" role="alert">
+              <a href="https://github.com/imvickykumar999/YouTube-Comment-Reader">
+                <h1>
+                  <p>Firebase Chatting Code on GitHub</p>
+                </h1>
+              </a>
+            </div>
+
+          </div>
+        </div>
+
+        <br><br>
+
+        <form method="post" action="/converted_firechat">
+
+          <div class="alert alert-danger" role="alert">
+            <center>
+
+              <div class="alert alert-primary" role="alert">
+                <h3>
+                  <strong>Enter <br>Credentials</strong>
+                </h3>
+
+                <input type="text" name="credentials" placeholder="Due to Security Reason"/>
+                <br><br>
+              </div>
+
+              <div class="alert alert-warning" role="alert">
+                <h3>
+                  <strong>Enter <br>Your Name</strong>
+                </h3>
+
+                <input type="text" name="person" placeholder="Your IP Address will be saved"/>
+                <br><br>
+              </div>
+
+              <div class="alert alert-primary" role="alert">
+                <h3>
+                  <strong>Enter <br>Message</strong>
+                </h3>
+
+                <input type="text" name="message" placeholder="Let's Start Healthy Conversation"/>
+                <br><br>
+              </div>
+
+              <!-- <div class="alert alert-danger" role="alert"> -->
+                <input type="image"
+                       src="../static/logo/submit.png"
+                       width="200"
+                       height="60"
+                       alt="submit"/>
+              <!-- </div> -->
+
+            </center>
+          </div>
+
+        <br><br>
+        </form>
+
       <p>
         <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
           Click me to See Messages
         </a>
       </p>
-
-      <br><br>
 
       <div class="collapse" id="collapseExample">
         <div class="card card-body">
@@ -83,7 +96,7 @@
                   <div class="alert alert-success" role="alert">
 
                     <a class="btn btn-primary" data-toggle="collapse" href="#{{key}}" role="button" aria-expanded="false" aria-controls="{{key}}">
-                      {{values.split(' => ')[0]}}
+                      Click me : {{values.split(' => ')[0]}}
                     </a>
 
                     <div class="collapse" id="{{key}}">
@@ -114,65 +127,6 @@
         </div>
       </div>
 
-      <form method="post" action="/converted_firechat">
-
-        <div class="alert alert-danger" role="alert">
-          <center>
-
-            <div class="alert alert-primary" role="alert">
-              <h3>
-                <strong>Enter <br>Credentials</strong>
-              </h3>
-
-              <input type="text" name="credentials" placeholder="Type here"/>
-              <br><br>
-            </div>
-
-            <div class="alert alert-warning" role="alert">
-              <h3>
-                <strong>Enter <br>Your Name</strong>
-              </h3>
-
-              <input type="text" name="person" placeholder="Type here"/>
-              <br><br>
-            </div>
-
-            <div class="alert alert-primary" role="alert">
-              <h3>
-                <strong>Enter <br>Message</strong>
-              </h3>
-
-              <input type="text" name="message" placeholder="Type here"/>
-              <br><br>
-            </div>
-
-            <!-- <div class="alert alert-danger" role="alert"> -->
-              <input type="image"
-                     src="../static/logo/submit.png"
-                     width="200"
-                     height="60"
-                     alt="submit"/>
-            <!-- </div> -->
-
-          </center>
-        </div>
-
-      <br><br>
-      </form>
-
-      <div class="jumbotron jumbotron-fluid">
-        <div class="container">
-
-          <div class="alert alert-danger" role="alert">
-            <a href="https://github.com/imvickykumar999/YouTube-Comment-Reader">
-              <h1>
-                <p>Firebase Chatting Code on GitHub</p>
-              </h1>
-            </a>
-          </div>
-
-        </div>
-      </div>
     </center>
   </div>
 
