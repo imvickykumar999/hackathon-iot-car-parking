@@ -46,24 +46,6 @@
                            alt="submit"/>
                   </div>
 
-                  <p>
-                    {% with messages = get_flashed_messages() %}
-                      {% if messages %}
-
-                      <ul class=flashes>
-                      {% for message in messages %}
-                        <li>
-                          <h3>
-                            {{ message }}
-                          </h3>
-                        </li>
-                      {% endfor %}
-                      </ul>
-
-                      {% endif %}
-                    {% endwith %}
-                  </p>
-
                 </center>
               </div>
 
@@ -75,8 +57,16 @@
 
                 <div class="alert alert-danger" role="alert">
                   <a href="https://github.com/lincolnloop/python-qrcode#what-is-a-qr-code">
-                    <h1>
+                    <!-- <h1>
                       <p>QRCode on GitHub</p>
+                    </h1> -->
+
+                    <h1 style="color:red;">
+                      <strong>
+                        Text to QRCode Converter
+                        <br>
+                        <em style="color:green;">See Code on GitHub</em>
+                      </strong>
                     </h1>
                   </a>
 

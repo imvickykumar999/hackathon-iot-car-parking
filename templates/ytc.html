@@ -22,8 +22,12 @@
 
             <div class="alert alert-danger" role="alert">
               <a href="https://github.com/imvickykumar999/YouTube-Comment-Reader">
-                <h1>
-                  <p>YouTube Comment Reader Code on GitHub</p>
+                <h1 style="color:red;">
+                  <strong>
+                    YouTube Comment Reader
+                    <br>
+                    <em style="color:green;">See Code on GitHub</em>
+                  </strong>
                 </h1>
               </a>
 
@@ -53,67 +57,66 @@
             </center>
           </div>
 
-          <br><br>
+        <br><br>
         </form>
 
+      </center>
+    </div>
+  </div>
+
+  <div class="jumbotron">
+    <div class="container">
+
+      <center>
+        <div class="class="video-container"">
+          <iframe
+                  src="https://www.youtube.com/embed/{{vid}}?autoplay=1&start={{tm}}&loop=1"
+                  frameborder="0"
+                  allow="autoplay; encrypted-media" allowfullscreen>
+          </iframe>
+        </div>
+      </center>
+
+    </div>
+  </div>
+
+  <div class="jumbotron">
+    <div class="jumbotron jumbotron-fluid">
+
+    <div class="container">
+
+      <center>
+        <strong>
+            <em>
+
+              <div class="alert alert-danger" role="alert">
+                <h1>Comments</h1>
+              </div>
+
+              {% for key, value in dict.items() %}
+                <div class="alert alert-warning" role="alert">
+
+                <h1>{{key}}</h1>
+
+                  {% if value %}
+
+                      {% for i in value %}
+                      <div class="alert alert-primary" role="alert">
+                          <h3>{{i}}</h3>
+                      </div>
+                      {% endfor %}
+
+                  {% endif %}
+                </div>
+              {% endfor %}
+
+            </em>
+          </strong>
         </center>
+
       </div>
     </div>
-
-        <div class="jumbotron">
-          <div class="container">
-
-            <center>
-              <div class="class="video-container"">
-                <iframe
-                        src="https://www.youtube.com/embed/{{vid}}?autoplay=1&start={{tm}}&loop=1"
-                        frameborder="0"
-                        allow="autoplay; encrypted-media" allowfullscreen>
-                </iframe>
-              </div>
-            </center>
-
-          </div>
-        </div>
-
-
-        <div class="jumbotron">
-          <div class="jumbotron jumbotron-fluid">
-
-          <div class="container">
-
-            <center>
-              <strong>
-                  <em>
-
-                    <div class="alert alert-danger" role="alert">
-                      <h1>Comments</h1>
-                    </div>
-
-                    {% for key, value in dict.items() %}
-                      <div class="alert alert-warning" role="alert">
-
-                      <h1>{{key}}</h1>
-
-                        {% if value %}
-
-                            {% for i in value %}
-                            <div class="alert alert-primary" role="alert">
-                                <h3>{{i}}</h3>
-                            </div>
-                            {% endfor %}
-
-                        {% endif %}
-                      </div>
-                    {% endfor %}
-
-                  </em>
-                </strong>
-              </center>
-
-            </div>
-          </div>
-        </div>
+  </div>
 
 </body>
 </html>

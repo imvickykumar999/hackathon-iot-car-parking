@@ -19,9 +19,17 @@
 
       <div class="alert alert-primary" role="alert">
         <center>
-          <h3>
+          <!-- <h3>
             <strong>Enter Morse Code or, Simple Text (or, just Press Ok/Enter for default entry) : </strong>
-          </h3>
+          </h3> -->
+
+          <h1 style="color:red;">
+            <strong>
+              Enter Morse Code or, Simple Text
+              <br>
+              <em style="color:green;">(or, just Press Ok/Enter for default entry)</em>
+            </strong>
+          </h1>
 
           <input type="text" name="morse"/>
           <br><br>
@@ -35,24 +43,6 @@
                  alt="submit"/>
           </div>
 
-          <p>
-            {% with messages = get_flashed_messages() %}
-              {% if messages %}
-
-              <ul class=flashes>
-              {% for message in messages %}
-                <li>
-                  <h3>
-                    {{ message }}
-                  </h3>
-                </li>
-              {% endfor %}
-              </ul>
-
-              {% endif %}
-            {% endwith %}
-          </p>
-
         </center>
       </div>
 
@@ -64,9 +54,17 @@
 
         <div class="alert alert-warning" role="alert">
           <a href="https://github.com/imvickykumar999/100th-Repository-Morsetor-python-Package">
-            <h1>
+            <!-- <h1>
               <p>Brython on GitHub</p>
               <p>Morse Code Convertor</p>
+            </h1> -->
+
+            <h1 style="color:red;">
+              <strong>
+                Morse Code Convertor
+                <br>
+                <em style="color:green;">See Code on GitHub</em>
+              </strong>
             </h1>
           </a>
 
