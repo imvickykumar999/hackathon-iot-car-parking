@@ -34,3 +34,4 @@ gevent
 google-api-python-client
 fpdf
 youtube-search
+pytube
