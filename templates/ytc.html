@@ -38,7 +38,7 @@
 
             <form method="post" action="/converted_vickstube">
 
-              <div class="alert alert-danger" role="alert">
+              <div class="alert alert-primary" role="alert">
                 <center>
                   <h3>
                     <strong>Enter YouTube Video <br>Title or, URL : </strong>
@@ -47,13 +47,13 @@
                   <input type="text" name="ytc" placeholder="Type Title or, Paste URL here"/>
                   <br><br>
 
-                  <div class="alert alert-primary" role="alert">
+                  <!-- <div class="alert alert-success" role="alert"> -->
                     <input type="image"
                            src="../static/logo/submit.png"
                            width="200"
                            height="60"
                            alt="submit"/>
-                  </div>
+                  <!-- </div> -->
 
                 </center>
               </div>
@@ -83,39 +83,66 @@
   </div>
 
   <div class="jumbotron">
-    <div class="jumbotron jumbotron-fluid">
-      <div class="container">
+    <div class="container">
 
-        <center>
-          <strong>
-              <em>
+      <center>
+        <strong>
+            <em>
 
-                <div class="alert alert-danger" role="alert">
-                  <h1>Comments</h1>
-                </div>
+              <a class="btn btn-warning" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                Click me to See Comments
+              </a>
 
-                {% for key, value in dict.items() %}
-                  <div class="alert alert-warning" role="alert">
+              <div class="collapse" id="collapseExample">
+                <div class="card card-body">
+                  <div class="container">
 
-                  <h1>{{key}}</h1>
+                      {% for key, values in dict.items() %}
+                        <div class="alert alert-success" role="alert">
 
-                    {% if value %}
+                          {% if values %}
 
-                        {% for i in value %}
-                        <div class="alert alert-primary" role="alert">
-                            <h3>{{i}}</h3>
+                            <a class="btn btn-primary" data-toggle="collapse" href="#{{key}}" role="button" aria-expanded="false" aria-controls="{{key}}">
+                              <h1>{{key}}</h1>
+                            </a>
+
+                          {% else %}
+
+                          <h1>
+                            {{key}}
+                          </h1>
+
+                          {% endif %}
+
+                          {% if values %}
+                            <div class="collapse" id="{{key}}">
+                              <div class="card card-body">
+
+                                <div>
+                                  {% for i in values %}
+
+                                    <div class="alert alert-primary" role="alert">
+                                        <h3>{{i}}</h3>
+                                    </div>
+
+                                  {% endfor %}
+                                </div>
+
+                              </div>
+                            </div>
+                          {% endif %}
+
                         </div>
-                        {% endfor %}
+                      {% endfor %}
 
-                    {% endif %}
                   </div>
-                {% endfor %}
+                </div>
+              </div>
 
-              </em>
-            </strong>
-          </center>
+            </em>
+          </strong>
+        </center>
 
-        </div>
       </div>
     </div>
 

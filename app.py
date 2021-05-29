@@ -189,6 +189,9 @@ def converted_vickstube():
     from youtube_search import YoutubeSearch
 
     url = request.form['ytc']
+    if url == '':
+        url = 'https://www.youtube.com/watch?v=Cpc_rHf1U6g'
+
     s = url.split('/')
     tm=0
 
@@ -211,7 +214,7 @@ def converted_vickstube():
         com = ytc.comments(vid)
     except:
         com = {
-            "...are": ["Disabled by user !"],
+            "Comments are...": ["Disabled by user !"],
             "Sorry...": ["Comments are not Visible !"],
         }
 
