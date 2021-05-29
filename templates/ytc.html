@@ -85,9 +85,13 @@
           </iframe>
         </div>
 
-        <a href="uploads/title.mp4">
-          <h1 style="color:red;">Click me <br>to Download</h1>
-        </a>
+        {% if title != '' %}
+        <br><br>
+
+          <a class="btn btn-primary" href="uploads/title.mp4">
+            <h3>Click me <br>to Download</h3>
+          </a>
+        {% endif %}
 
       </center>
     </div>
