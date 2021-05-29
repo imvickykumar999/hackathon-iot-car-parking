@@ -97,10 +97,10 @@
                 <div class="card card-body">
                   <div class="container">
 
-                      {% for key, values in dict.items() %}
+                      {% for key, value in dict.items() %}
                         <div class="alert alert-success" role="alert">
 
-                          {% if values %}
+                          {% if value %}
 
                             <a class="btn btn-primary" data-toggle="collapse" href="#{{key}}" role="button" aria-expanded="false" aria-controls="{{key}}">
                               <h1>{{key}}</h1>
@@ -114,17 +114,13 @@
 
                           {% endif %}
 
-                          {% if values %}
+                          {% if value %}
                             <div class="collapse" id="{{key}}">
                               <div class="card card-body">
 
                                 <div>
-                                  {% for i in values %}
-
-                                    <div class="alert alert-primary" role="alert">
-                                        <h3>{{i}}</h3>
-                                    </div>
-
+                                  {% for i in value %}
+                                    <h3>{{i}}</h3>
                                   {% endfor %}
                                 </div>
 
