@@ -181,6 +181,7 @@ def vickstube():
                             dict=dict,
                             tm=945,
                             title='',
+                            wanna_download="0",                            
                             vid=vid,
                             )
 
@@ -230,6 +231,7 @@ def converted_vickstube():
     return render_template("ytc.html",
                             dict=com,
                             tm=tm,
+                            wanna_download=wanna_download,
                             vid=vid,
                             )
 
