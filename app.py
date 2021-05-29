@@ -180,7 +180,9 @@ def vickstube():
     return render_template("ytc.html",
                             dict=dict,
                             tm=945,
-                            vid=vid)
+                            title='',
+                            vid=vid,
+                            )
 
 @app.route('/converted_vickstube', methods=['POST'])
 def converted_vickstube():
@@ -228,7 +230,8 @@ def converted_vickstube():
     return render_template("ytc.html",
                             dict=com,
                             tm=tm,
-                            vid=vid)
+                            vid=vid,
+                            )
 
 # ========================================================
 
