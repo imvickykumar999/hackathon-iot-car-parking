@@ -184,31 +184,34 @@ def vickstube():
 
 @app.route('/converted_vickstube', methods=['POST'])
 def converted_vickstube():
+
     from vicks import ytc
+    from youtube_search import YoutubeSearch
 
     url = request.form['ytc']
-    try:
-        s = url.split('/')
+    s = url.split('/')
 
+    if s[0] != 'https:':
+        vid = YoutubeSearch(s[0], max_results = 1).to_dict()[-1]['id']
+    else:
         if s[2] == 'www.youtube.com':
             vid = s[3].split('=')[1].split('?')[0]
-
         elif s[2] == 'youtu.be':
             vid = s[3].split('?')[0]
-
         else:
             vid = 'Cpc_rHf1U6g'
             print("Sorry... Code couldn't be extracted !!!")
 
-    except Exception as e:
-        vid = 'Cpc_rHf1U6g'
-        print(e)
-
-    dict = ytc.comments(vid)
-    print(vid)
+    try:
+        com = ytc.comments(vid)
+        print(com)
+    except:
+        com = {
+            "...are": ["Disabled by user !"],
+        }
 
     return render_template("ytc.html",
-                            dict=dict,
+                            dict=com,
                             tm=0,
                             vid=vid)
 
