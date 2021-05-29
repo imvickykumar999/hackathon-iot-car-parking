@@ -191,7 +191,7 @@ def converted_vickstube():
     url = request.form['ytc']
     s = url.split('/')
     tm=0
-    
+
     if s[0] != 'https:':
         vid = YoutubeSearch(s[0], max_results = 1).to_dict()[0]['id']
 
@@ -215,6 +215,7 @@ def converted_vickstube():
             "Sorry...": ["Comments are not Visible !"],
         }
 
+    print(vid)
     return render_template("ytc.html",
                             dict=com,
                             tm=tm,
