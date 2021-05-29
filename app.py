@@ -219,6 +219,12 @@ def converted_vickstube():
         }
 
     print(vid)
+    wanna_download = request.form['ytdownload']
+
+    if wanna_download == "1":
+        from vicks import ytdownload as ytd
+        ytd.yt_video(vid)
+
     return render_template("ytc.html",
                             dict=com,
                             tm=tm,
