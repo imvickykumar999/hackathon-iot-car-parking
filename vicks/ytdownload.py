@@ -17,7 +17,7 @@ def yt_video(vid = 'KBtk5FUeJbk'):
         youtube_video_url = 'https://youtu.be/' + vid
         yt_obj = YouTube(youtube_video_url)
 
-        yt_obj.title = ''.join(yt_obj.title.split()[0:3])
+        yt_obj.title = ''.join(yt_obj.title.split()[0:2])
         filters = yt_obj.streams.filter(progressive=True, file_extension='mp4')
 
         filters.get_highest_resolution().download("uploads/")
@@ -26,7 +26,7 @@ def yt_video(vid = 'KBtk5FUeJbk'):
     except Exception as e:
         print(e)
 
-    return ''.join(yt_obj.title.split()[0:3])
+    return ''.join(yt_obj.title.split()[0:2])
 
 # youtube_video_url = 'https://youtu.be/GbqGmNsWDaE'
 # yt_obj = YouTube(youtube_video_url)
