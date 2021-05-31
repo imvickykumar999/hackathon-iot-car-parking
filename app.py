@@ -176,10 +176,16 @@ def vickstube():
 
     vid = 'Cpc_rHf1U6g'
     dict = ytc.comments(vid)
-    # os.rmdir('uploads/videos')
 
-    import shutil
-    shutil.rmtree('uploads/videos')
+    try:
+        import shutil
+        shutil.rmtree('uploads/videos')
+    except:
+        try:
+            os.mkdir('uploads/videos')
+        except Exception as e:
+            print(e)
+            pass
 
     return render_template("ytc.html",
                             dict=dict,

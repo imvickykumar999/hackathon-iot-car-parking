@@ -15,12 +15,6 @@ def yt_audio(youtube_video_url = 'https://youtu.be/KBtk5FUeJbk'):
 
 def yt_video(vid = 'KBtk5FUeJbk'):
     try:
-        os.mkdir('uploads/videos')
-    except Exception as e:
-        print(e)
-        pass
-
-    try:
         youtube_video_url = 'https://youtu.be/' + vid
         yt_obj = YouTube(youtube_video_url)
 
