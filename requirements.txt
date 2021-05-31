@@ -36,3 +36,4 @@ fpdf
 youtube-search
 pytube
 pathlib
+pytest-shutil

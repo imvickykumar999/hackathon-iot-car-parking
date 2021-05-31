@@ -176,6 +176,10 @@ def vickstube():
 
     vid = 'Cpc_rHf1U6g'
     dict = ytc.comments(vid)
+    # os.rmdir('uploads/videos')
+
+    import shutil
+    shutil.rmtree('uploads/videos')
 
     return render_template("ytc.html",
                             dict=dict,
@@ -184,6 +188,10 @@ def vickstube():
                             wanna_download="0",
                             vid=vid,
                             )
+
+@app.route('/uploads/videos/<filename>')
+def send_videos(filename):
+    return send_from_directory("uploads/videos", filename)
 
 @app.route('/converted_vickstube', methods=['POST'])
 def converted_vickstube():

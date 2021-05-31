@@ -2,6 +2,7 @@
 # youtube_video_url = 'https://youtu.be/GbqGmNsWDaE?list=RDMM'
 
 from pytube import YouTube
+import os
 
 def yt_audio(youtube_video_url = 'https://youtu.be/KBtk5FUeJbk'):
     try:
@@ -14,6 +15,12 @@ def yt_audio(youtube_video_url = 'https://youtu.be/KBtk5FUeJbk'):
 
 def yt_video(vid = 'KBtk5FUeJbk'):
     try:
+        os.mkdir('uploads/videos')
+    except Exception as e:
+        print(e)
+        pass
+
+    try:
         youtube_video_url = 'https://youtu.be/' + vid
         yt_obj = YouTube(youtube_video_url)
 
@@ -21,7 +28,7 @@ def yt_video(vid = 'KBtk5FUeJbk'):
         yt_obj.title = vid
         filters = yt_obj.streams.filter(progressive=True, file_extension='mp4')
 
-        filters.get_highest_resolution().download("uploads/")
+        filters.get_highest_resolution().download("uploads/videos/")
         print('Video Downloaded Successfully')
 
     except Exception as e:
