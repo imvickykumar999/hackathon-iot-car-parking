@@ -177,15 +177,16 @@ def vickstube():
     vid = 'Cpc_rHf1U6g'
     dict = ytc.comments(vid)
 
+    # try:
+    #     import shutil
+    #     shutil.rmtree('uploads/videos')
+    # except:
+
     try:
-        import shutil
-        shutil.rmtree('uploads/videos')
-    except:
-        try:
-            os.mkdir('uploads/videos')
-        except Exception as e:
-            print(e)
-            pass
+        os.mkdir('uploads/videos')
+    except Exception as e:
+        print(e)
+        pass
 
     return render_template("ytc.html",
                             dict=dict,
@@ -238,6 +239,11 @@ def converted_vickstube():
     print(vid)
     title = "None"
     wanna_download = request.form['ytdownload']
+
+    # if requests.status_code == 429: # ...shifted 404.html
+    #     import shutil
+    #     shutil.rmtree('uploads/videos')
+    #     os.mkdir('uploads/videos')
 
     if wanna_download == "1":
         from vicks import ytdownload as ytd
@@ -716,6 +722,12 @@ def news():
 
 @app.errorhandler(404)
 def page_not_found(e):
+    try:
+        import shutil
+        shutil.rmtree('uploads/videos')
+    except:
+        pass
+    os.mkdir('uploads/videos')
     return render_template('404.html'), 404
 
 @app.route('/chat')
