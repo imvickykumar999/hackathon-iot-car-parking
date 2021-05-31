@@ -658,6 +658,12 @@ def hacker_vicky():
                         key=os.path.getmtime)
     # os.remove(paths[-1])
 
+    try:
+        os.mkdir('uploads/videos')
+    except Exception as e:
+        print(e)
+        pass
+
     video_path = sorted(Path('./uploads/videos').iterdir(),
                         key=os.path.getmtime)
 
@@ -724,9 +730,9 @@ def page_not_found(e):
     try:
         import shutil
         shutil.rmtree('uploads/videos')
+        os.mkdir('uploads/videos')
     except:
         pass
-    os.mkdir('uploads/videos')
     return render_template('404.html'), 404
 
 @app.route('/chat')
