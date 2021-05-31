@@ -245,9 +245,15 @@ def converted_vickstube():
 
 @app.route("/firechat")
 def firechat():
-
+    # https://console.firebase.google.com/u/0/project/chatting-c937e/database/chatting-c937e-default-rtdb/data
     from vicks import crud
     obj1 = crud.vicks('@Hey_Vicks')
+
+    data = obj1.pull('Group/Chat')
+    # print('=============================', data)
+
+    if data == None:
+        obj1.push()
 
     data = obj1.pull('Group/Chat')
     return render_template("firechat.html",
