@@ -728,8 +728,8 @@ def news():
 @app.errorhandler(404)
 def page_not_found(e):
     try:
-        import shutil
-        shutil.rmtree('uploads/videos')
+        # import shutil
+        # shutil.rmtree('uploads/videos')
         os.mkdir('uploads/videos')
     except:
         pass
