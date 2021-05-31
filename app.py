@@ -29,6 +29,12 @@ except Exception as e:
     print(e)
     pass
 
+try:
+    os.mkdir('uploads/videos')
+except Exception as e:
+    print(e)
+    pass
+
 app = Flask(__name__)
 app.secret_key = "secret key"
 
@@ -176,17 +182,6 @@ def vickstube():
 
     vid = 'Cpc_rHf1U6g'
     dict = ytc.comments(vid)
-
-    # try:
-    #     import shutil
-    #     shutil.rmtree('uploads/videos')
-    # except:
-
-    try:
-        os.mkdir('uploads/videos')
-    except Exception as e:
-        print(e)
-        pass
 
     return render_template("ytc.html",
                             dict=dict,
