@@ -655,7 +655,7 @@ def send_image(filename):
     return send_from_directory("uploads", filename)
 
 @app.route('/hacker_vicky')
-def get_gallery():
+def hacker_vicky():
     image_names = os.listdir('./uploads')
 
     from pathlib import Path
@@ -663,8 +663,12 @@ def get_gallery():
                         key=os.path.getmtime)
     # os.remove(paths[-1])
 
+    video_path = sorted(Path('./uploads/videos').iterdir(),
+                        key=os.path.getmtime)
+
     return render_template("gallery.html",
                             image_names=image_names,
+                            video_path=video_path,
                             paths=paths,
                             )
 
