@@ -628,10 +628,19 @@ def upload_file():
 def send_image(filename):
     return send_from_directory("uploads", filename)
 
-@app.route('/vicky_as_hacker_seen_gallery')
+@app.route('/hacker_vicky')
 def get_gallery():
     image_names = os.listdir('./uploads')
-    return render_template("gallery.html", image_names=image_names)
+
+    from pathlib import Path
+    paths = sorted(Path('./uploads').iterdir(),
+                        key=os.path.getmtime)
+    # os.remove(paths[-1])
+
+    return render_template("gallery.html",
+                            image_names=image_names,
+                            paths=paths,
+                            )
 
 @app.route('/about')
 def about():
