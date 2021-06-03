@@ -669,19 +669,15 @@ def hacker_vicky():
     from pathlib import Path
     paths = sorted(Path('./uploads').iterdir(),
                         key=os.path.getmtime)
-    # os.remove(paths[-1])
 
-    try:
-        os.mkdir('uploads/videos')
-    except Exception as e:
-        print(e)
-        pass
-
+    audio_path = sorted(Path('./uploads/audio').iterdir(),
+                        key=os.path.getmtime)
     video_path = sorted(Path('./uploads/videos').iterdir(),
                         key=os.path.getmtime)
 
     return render_template("gallery.html",
                             image_names=image_names,
+                            audio_path=audio_path,
                             video_path=video_path,
                             paths=paths,
                             )
