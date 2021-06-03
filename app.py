@@ -35,6 +35,12 @@ except Exception as e:
     print(e)
     pass
 
+try:
+    os.mkdir('uploads/audio')
+except Exception as e:
+    print(e)
+    pass
+
 app = Flask(__name__)
 app.secret_key = "secret key"
 
@@ -195,6 +201,10 @@ def vickstube():
 def send_videos(filename):
     return send_from_directory("uploads/videos", filename)
 
+@app.route('/uploads/audio/<filename>')
+def send_audio(filename):
+    return send_from_directory("uploads/audio", filename)
+
 @app.route('/converted_vickstube', methods=['POST'])
 def converted_vickstube():
 
@@ -233,16 +243,19 @@ def converted_vickstube():
 
     print(vid)
     title = "None"
-    wanna_download = request.form['ytdownload']
+    wanna_download = request.form['ytdownload'].upper()
 
     # if requests.status_code == 429: # ...shifted 404.html
     #     import shutil
     #     shutil.rmtree('uploads/videos')
     #     os.mkdir('uploads/videos')
 
-    if wanna_download == "1":
-        from vicks import ytdownload as ytd
+    from vicks import ytdownload as ytd
+    if wanna_download == "V":
         title = ytd.yt_video(vid)
+
+    elif wanna_download == "A":
+        title = ytd.yt_audio(vid)
     else:
         wanna_download = "0"
 

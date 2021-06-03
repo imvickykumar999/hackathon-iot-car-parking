@@ -42,7 +42,7 @@
 
                   <div class="alert alert-primary" role="alert">
                     <h3>
-                      <strong>Enter YouTube Video <br>Title or, URL : </strong>
+                      <strong>Enter YouTube Video Title,<br>Video ID or, URL : </strong>
                     </h3>
 
                     <input type="text" name="ytc" placeholder="Type Title or, Paste URL here"/>
@@ -51,10 +51,10 @@
 
                   <div class="alert alert-success" role="alert">
                     <h3>
-                      <strong>Want to Download <br>Video ? (1/0) : </strong>
+                      <strong>Want to Download <br> Video or Audio ? (V / A) : </strong>
                     </h3>
 
-                    <input type="text" name="ytdownload" placeholder="Write 1 for Yes, 0 for No"/>
+                    <input type="text" name="ytdownload" placeholder="Write A for Audio, V for Video"/>
                     <br><br>
                   </div>
 
@@ -89,11 +89,19 @@
           </iframe>
         </div>
 
-        {% if wanna_download == "1" %}
+        {% if wanna_download == "V" %}
         <br><br>
 
           <a class="btn btn-primary" href="uploads/videos/{{title}}.mp4">
-            <h3>Click me <br>to Download</h3>
+            <h3>Click me to<br>Download Video</h3>
+          </a>
+        {% endif %}
+
+        {% if wanna_download == "A" %}
+        <br><br>
+
+          <a class="btn btn-primary" href="uploads/audio/{{title}}.mp3">
+            <h3>Click me to<br>Download Audio</h3>
           </a>
         {% endif %}
 
