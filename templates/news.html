@@ -33,7 +33,7 @@
       </div>
     </div>
 
-
+    <div class="jumbotron jumbotron">
     <div class="jumbotron jumbotron-fluid">
       <div class="container">
         <!-- <div class="row row-cols-1 row-cols-md-2"> -->
@@ -69,11 +69,14 @@
                     <center>
                       <h1 style="color:red;" class="card-title">{{x+1}}). {{ha[x]}}</h1>
                       <br>
-                        <h3>
-                          <p class="card-text">{{ba[x]}}</p>
-                        </h3>
-                      <br>
 
+                        <h3>
+                          <div class="alert alert-primary" role="alert">
+                            <p class="card-text">{{ba[x]}}</p>
+                          </div>
+                        </h3>
+
+                      <br>
                       {% if la[x] == 'link not found' %}
                           <a href="{{la[x]}}" class="btn btn-primary">Link NOT Found</a>
                       {% else %}
@@ -81,11 +84,12 @@
                       {% endif %}
 
                       <br><br>
+                      <div class="alert alert-danger" role="alert">
 
-                      <audio controls autoplay muted>
-                        <source src="uploads/news/{{x+1}}.mp3" type="audio/mpeg">
-                        Your browser does not support the audio element.
-                      </audio>
+                        <audio controls autoplay muted>
+                          <source src="uploads/news/{{x+1}}.mp3" type="audio/mpeg">
+                        </audio>
+                      </div>
 
                       <!-- <input type = "button" id = "mybutton{{x+1}}" value = " Listen News {{x+1}} " /> -->
 
@@ -94,10 +98,11 @@
                 </div>
               </div>
 
+            <br>
           {% endfor %}
 
         </div>
-      <!-- </div> -->
+      </div>
     </div>
 
   </body>

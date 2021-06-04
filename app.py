@@ -198,6 +198,7 @@ def vickstube():
     return render_template("ytc.html",
                             dict=dict,
                             tm=945,
+                            ap=1,
                             title='None',
                             wanna_download="0",
                             vid=vid,
@@ -269,6 +270,7 @@ def converted_vickstube():
     return render_template("ytc.html",
                             dict=com,
                             tm=tm,
+                            ap=1,
                             title=title,
                             wanna_download=wanna_download,
                             vid=vid,
@@ -684,12 +686,15 @@ def hacker_vicky():
 
     audio_path = sorted(Path('./uploads/audio').iterdir(),
                         key=os.path.getmtime)
+    news_path = sorted(Path('./uploads/news').iterdir(),
+                        key=os.path.getmtime)
     video_path = sorted(Path('./uploads/videos').iterdir(),
                         key=os.path.getmtime)
 
     return render_template("gallery.html",
                             image_names=image_names,
                             audio_path=audio_path,
+                            news_path=news_path,
                             video_path=video_path,
                             paths=paths,
                             )
@@ -721,7 +726,7 @@ def news():
         box = soup.findAll('div', attrs = {'class':'news-card z-depth-1'})
 
         ha,ia,ba,la = [],[],[],[]
-        for i in range(len(box)):
+        for i in range(12):
             h = box[i].find('span', attrs = {'itemprop':'headline'}).text
 
             m = box[i].find('div', attrs = {'class':'news-card-image'})
@@ -767,7 +772,7 @@ def news():
                                 ia=ia,
                                 ba=ba,
                                 la=la,
-                                range_ha = range(len(ha)),
+                                range_ha = range(12),
                                 )
     except Exception as e:
         print(e)

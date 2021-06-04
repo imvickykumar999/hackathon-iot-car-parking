@@ -83,7 +83,7 @@
       <center>
         <div class="class="video-container"">
           <iframe
-                  src="https://www.youtube.com/embed/{{vid}}?autoplay=1&start={{tm}}&loop=1"
+                  src="https://www.youtube.com/embed/{{vid}}?autoplay={{ap}}&start={{tm}}&loop=1"
                   frameborder="0"
                   allow="autoplay; encrypted-media" allowfullscreen>
           </iframe>
@@ -99,10 +99,16 @@
 
         {% if wanna_download == "A" %}
         <br><br>
+          <div class="alert alert-danger" role="alert">
 
-          <a class="btn btn-primary" href="uploads/audio/{{title}}.mp3">
+            <audio controls autoplay muted>
+              <source src="uploads/audio/{{title}}.mp3" type="audio/mpeg">
+            </audio>
+          </div>
+
+          <!-- <a class="btn btn-primary" href="uploads/audio/{{title}}.mp3">
             <h3>Click me to<br>Download Audio</h3>
-          </a>
+          </a> -->
         {% endif %}
 
       </center>
