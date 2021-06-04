@@ -39,3 +39,4 @@ pathlib
 pytest-shutil
 jsonify
 pyttsx3
+gTTS

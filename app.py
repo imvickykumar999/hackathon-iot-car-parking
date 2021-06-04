@@ -41,6 +41,12 @@ except Exception as e:
     print(e)
     pass
 
+try:
+    os.mkdir('uploads/news')
+except Exception as e:
+    print(e)
+    pass
+
 app = Flask(__name__)
 app.secret_key = "secret key"
 
@@ -706,7 +712,7 @@ def skills():
 
 @app.route('/news', methods=['GET', 'POST'])
 def news():
-
+    from gtts import gTTS
     try:
         link = 'https://inshorts.com/en/read'
         req = requests.get(link)
@@ -722,8 +728,10 @@ def news():
             m = m['style'].split("'")[1]
 
             b = box[i].find('div', attrs = {'itemprop':'articleBody'}).text
-            l='link not found'
+            tts = gTTS(b)
+            tts.save(f'uploads/news/{i+1}.mp3')
 
+            l='link not found'
             try:
                 l = box[i].find('a', attrs = {'class':'source'})['href']
             except:
@@ -734,24 +742,25 @@ def news():
             ba.append(b)
             la.append(l)
 
-        try:
-            entry_id = int(request.args.get('entry_id'))
-            print(entry_id)
-
-            import pyttsx3
-            engine = pyttsx3.init()
-
-            rate = engine.getProperty('rate')
-            engine.setProperty('rate', 150)
-
-            voices = engine.getProperty('voices')
-            engine.setProperty('voice', voices[1].id)
-
-            engine.say(f"{ba[entry_id]}")
-            engine.runAndWait()
-
-        except:
-            pass
+        # try:
+        #     entry_id = int(request.args.get('entry_id'))
+        #     print(entry_id+1)
+        #
+        #     import pyttsx3
+        #     engine = pyttsx3.init()
+        #
+        #     rate = engine.getProperty('rate')
+        #     engine.setProperty('rate', 150)
+        #
+        #     voices = engine.getProperty('voices')
+        #     engine.setProperty('voice', voices[1].id)
+        #
+        #     engine.say(f"{ba[entry_id]}")
+        #     engine.runAndWait()
+        #
+        # except:
+        #     print('passed...')
+        #     pass
 
         return render_template('news.html',
                                 ha=ha,
@@ -763,6 +772,10 @@ def news():
     except Exception as e:
         print(e)
         return render_template('ytc.html')
+
+@app.route('/uploads/news/<filename>')
+def send_news(filename):
+    return send_from_directory("uploads/news", filename)
 
 @app.errorhandler(404)
 def page_not_found(e):

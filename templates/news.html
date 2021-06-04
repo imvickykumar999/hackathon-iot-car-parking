@@ -40,7 +40,7 @@
 
           {% for x in range_ha %}
 
-            <script>
+            <!-- <script>
             $(document).ready(function() {
              $("#mybutton{{x+1}}").click(function() {
 
@@ -57,10 +57,7 @@
              });
 
             });
-            </script>
-
-            <input type = "button" id = "mybutton{{x+1}}" value = " Listen News {{x+1}} " />
-
+            </script> -->
 
               <div class="col mb-4">
                 <div class="card">
@@ -82,6 +79,15 @@
                       {% else %}
                           <a href="{{la[x]}}" class="btn btn-primary">Read More</a>
                       {% endif %}
+
+                      <br><br>
+
+                      <audio controls autoplay muted>
+                        <source src="uploads/news/{{x+1}}.mp3" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                      </audio>
+
+                      <!-- <input type = "button" id = "mybutton{{x+1}}" value = " Listen News {{x+1}} " /> -->
 
                     </center>
                   </div>
