@@ -80,16 +80,28 @@
 
           <form method="post" action="/converted_iotled">
 
-            <div class="alert alert-primary" role="alert">
+            <div class="alert alert-danger" role="alert">
               <center>
-                <h3>
-                  <strong>Enter Switch (1/0) : </strong>
-                </h3>
 
-                <input type="text" name="iotled" placeholder="LED Switch"/>
-                <br><br>
+                <div class="alert alert-warning" role="alert">
+                  <h3>
+                    <strong>Enter Credentials</strong>
+                  </h3>
 
-                <div class="alert alert-danger" role="alert">
+                  <input type="text" name="credentials" placeholder="Due to Security Purpose"/>
+                </div>
+
+                <div class="alert alert-success" role="alert">
+                  <h3>
+                    <strong>Enter Switch (1/0)</strong>
+                  </h3>
+
+                  <input type="text" name="iotled" placeholder="LED Switch"/>
+                </div>
+
+                <br>
+
+                <div class="alert alert-primary" role="alert">
                   <!-- <input type="submit" value="Submit"> -->
                 <input type="image"
                        src="../static/logo/submit.png"

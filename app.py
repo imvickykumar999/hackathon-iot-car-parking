@@ -409,10 +409,14 @@ def adafruit():
 @app.route('/')
 def iotled():
 
-    from vicksbase import firebase as vix
-    firebase_obj = vix.FirebaseApplication('https://home-automation-336c0-default-rtdb.firebaseio.com/', None)
+    # from vicksbase import firebase as vix
+    # firebase_obj = vix.FirebaseApplication('https://home-automation-336c0-default-rtdb.firebaseio.com/', None)
+    # result1 = firebase_obj.get('A/B/C/Switch', None)
 
-    result1 = firebase_obj.get('A/B/C/Switch', None)
+    import multivicks.crud as c
+    obj = c.vicks('@Hey_Vicks', 'Vicky', 'https://home-automation-336c0-default-rtdb.firebaseio.com/')
+    result1 = obj.pull('A/B/C/Switch')
+
     data1="{}".format(result1)
     # print(data1)
 
@@ -430,13 +434,15 @@ def iotled():
 @app.route('/converted_iotled', methods=['POST'])
 def converted_iotled():
 
-    from vicksbase import firebase as vix
-    firebase_obj = vix.FirebaseApplication('https://home-automation-336c0-default-rtdb.firebaseio.com/', None)
+    import multivicks.crud as c
+
+    credentials = request.form['credentials']
+    obj = c.vicks(credentials, 'Vicky', 'https://home-automation-336c0-default-rtdb.firebaseio.com/')
 
     data = int(request.form['iotled'])
-    firebase_obj.put('A/B/C','Switch', data)
+    obj.push(data, 'A/B/C/Switch')
 
-    result1 = firebase_obj.get('A/B/C/Switch', None)
+    result1 = obj.pull('A/B/C/Switch')
     data1="{}".format(result1)
     # print(data1)
 
