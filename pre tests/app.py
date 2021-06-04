@@ -16,6 +16,8 @@ def app_home():
 def getData():
 
     entry1Value = request.args.get('entry1_id')
+    print(entry1Value)
+
     import pyttsx3
     engine = pyttsx3.init()
 

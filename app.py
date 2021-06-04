@@ -736,6 +736,7 @@ def news():
 
         try:
             entry_id = int(request.args.get('entry_id'))
+            print(entry_id)
 
             import pyttsx3
             engine = pyttsx3.init()
@@ -748,7 +749,7 @@ def news():
 
             engine.say(f"{ba[entry_id]}")
             engine.runAndWait()
-            
+
         except:
             pass
 
