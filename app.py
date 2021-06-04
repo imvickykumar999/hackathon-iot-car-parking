@@ -41,6 +41,12 @@ except Exception as e:
     print(e)
     pass
 
+try:
+    os.mkdir('uploads/news')
+except Exception as e:
+    print(e)
+    pass
+
 app = Flask(__name__)
 app.secret_key = "secret key"
 
@@ -725,6 +731,14 @@ def news():
             l='link not found'
 
             try:
+                from gtts import gTTS
+                tts = gTTS(b)
+                tts.save(f'uploads/news/{i+1}.mp3')
+
+            except Exception as e:
+                print(e)
+
+            try:
                 l = box[i].find('a', attrs = {'class':'source'})['href']
             except:
                 pass
@@ -733,6 +747,8 @@ def news():
             ia.append(m)
             ba.append(b)
             la.append(l)
+
+        # print(ba[0])
         return render_template('news.html',
                                 ha=ha, ia=ia, ba=ba,
                                 la=la, len = len(ha))

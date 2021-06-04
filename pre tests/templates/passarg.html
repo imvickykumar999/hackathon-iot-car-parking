@@ -1,0 +1,38 @@
+<html>
+<body>
+
+Hello world! <br />
+
+<span id="varID">{{ variable_here }}</span>
+
+<br />
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+
+{% for i in range5 %}
+  <script>
+  $(document).ready(function() {
+
+   $("#mybutton{{variable_here[i]}}").click(function() {
+
+      var val = {{variable_here[i]}};
+      var entry1 = 0;
+
+      $.getJSON({
+      url: "/getData",
+      data: { entry2_id: val, entry1_id: entry1 },
+      success: function(data){
+          $("#varID").html(data.var1);
+      }
+      });
+
+   });
+
+  });
+  </script>
+
+  <input type = "button" id = "mybutton{{variable_here[i]}}" value = "Click Here" />
+{% endfor %}
+
+</body>
+</html>
