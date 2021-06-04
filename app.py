@@ -15,7 +15,7 @@ from bs4 import BeautifulSoup as bs
 from werkzeug.utils import secure_filename
 
 from vicks.encrypt import encryptpdf as enc, imgtopdf as imf
-from flask import Flask, flash, url_for, session, request, redirect, render_template, send_from_directory
+from flask import Flask, flash, jsonify, url_for, session, request, redirect, render_template, send_from_directory
 # from vicks import terminal
 
 from flask_qrcode import QRcode
@@ -37,12 +37,6 @@ except Exception as e:
 
 try:
     os.mkdir('uploads/audio')
-except Exception as e:
-    print(e)
-    pass
-
-try:
-    os.mkdir('uploads/news')
 except Exception as e:
     print(e)
     pass
@@ -710,7 +704,7 @@ def home():
 def skills():
     return render_template('skills.html')
 
-@app.route('/news')
+@app.route('/news', methods=['GET', 'POST'])
 def news():
 
     try:
@@ -731,14 +725,6 @@ def news():
             l='link not found'
 
             try:
-                from gtts import gTTS
-                tts = gTTS(b)
-                tts.save(f'uploads/news/{i+1}.mp3')
-
-            except Exception as e:
-                print(e)
-
-            try:
                 l = box[i].find('a', attrs = {'class':'source'})['href']
             except:
                 pass
@@ -748,13 +734,34 @@ def news():
             ba.append(b)
             la.append(l)
 
-        # print(ba[0])
+        try:
+            entry_id = int(request.args.get('entry_id'))
+
+            import pyttsx3
+            engine = pyttsx3.init()
+
+            rate = engine.getProperty('rate')
+            engine.setProperty('rate', 150)
+
+            voices = engine.getProperty('voices')
+            engine.setProperty('voice', voices[1].id)
+
+            engine.say(f"{ba[entry_id]}")
+            engine.runAndWait()
+            
+        except:
+            pass
+
         return render_template('news.html',
-                                ha=ha, ia=ia, ba=ba,
-                                la=la, len = len(ha))
+                                ha=ha,
+                                ia=ia,
+                                ba=ba,
+                                la=la,
+                                range_ha = range(len(ha)),
+                                )
     except Exception as e:
         print(e)
-        return render_template('skills.html')
+        return render_template('ytc.html')
 
 @app.errorhandler(404)
 def page_not_found(e):

@@ -38,7 +38,29 @@
       <div class="container">
         <!-- <div class="row row-cols-1 row-cols-md-2"> -->
 
-          {%for x in range(0, len)%}
+          {% for x in range_ha %}
+
+            <script>
+            $(document).ready(function() {
+             $("#mybutton{{x+1}}").click(function() {
+
+                var entry = {{x}};
+
+                $.getJSON({
+                url: "/news",
+                data: { entry_id: entry, },
+                success: function(data){
+                    $("#varID").html(data.entry);
+                }
+                });
+
+             });
+
+            });
+            </script>
+
+            <input type = "button" id = "mybutton{{x+1}}" value = " Listen News {{x+1}} " />
+
 
               <div class="col mb-4">
                 <div class="card">
