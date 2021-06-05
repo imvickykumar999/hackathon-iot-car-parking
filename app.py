@@ -718,6 +718,11 @@ def skills():
 @app.route('/news', methods=['GET', 'POST'])
 def news():
     from gtts import gTTS
+
+    empty = False
+    if len(os.listdir('uploads/news')) == 0:
+        empty = True
+
     try:
         link = 'https://inshorts.com/en/read'
         req = requests.get(link)
@@ -726,7 +731,7 @@ def news():
         box = soup.findAll('div', attrs = {'class':'news-card z-depth-1'})
 
         ha,ia,ba,la = [],[],[],[]
-        for i in range(12):
+        for i in range(len(box)):
             h = box[i].find('span', attrs = {'itemprop':'headline'}).text
 
             m = box[i].find('div', attrs = {'class':'news-card-image'})
@@ -734,7 +739,8 @@ def news():
 
             b = box[i].find('div', attrs = {'itemprop':'articleBody'}).text
             tts = gTTS(b)
-            tts.save(f'uploads/news/{i+1}.mp3')
+            if empty:
+                tts.save(f'uploads/news/{i+1}.mp3')
 
             l='link not found'
             try:
@@ -772,11 +778,11 @@ def news():
                                 ia=ia,
                                 ba=ba,
                                 la=la,
-                                range_ha = range(12),
+                                range_ha = range(len(ha)),
                                 )
     except Exception as e:
         print(e)
-        return render_template('ytc.html')
+        return render_template('404.html')
 
 @app.route('/uploads/news/<filename>')
 def send_news(filename):
