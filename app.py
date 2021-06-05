@@ -730,7 +730,7 @@ def news():
         soup = bs(req.content, 'html5lib')
         box = soup.findAll('div', attrs = {'class':'news-card z-depth-1'})
 
-        ha,ia,ba,la = [],[],[],[]
+        ha,ia,ba,la,ta = [],[],[],[],[]
         for i in range(len(box)):
             h = box[i].find('span', attrs = {'itemprop':'headline'}).text
 
@@ -739,8 +739,9 @@ def news():
 
             b = box[i].find('div', attrs = {'itemprop':'articleBody'}).text
             tts = gTTS(b)
+            t = ''.join([i for i in h if i.isalpha()])
             if empty:
-                tts.save(f'uploads/news/{i+1}.mp3')
+                tts.save(f'uploads/news/{t}.mp3')
 
             l='link not found'
             try:
@@ -752,6 +753,7 @@ def news():
             ia.append(m)
             ba.append(b)
             la.append(l)
+            ta.append(t)
 
         # try:
         #     entry_id = int(request.args.get('entry_id'))
@@ -778,6 +780,7 @@ def news():
                                 ia=ia,
                                 ba=ba,
                                 la=la,
+                                ta=ta,
                                 range_ha = range(len(ha)),
                                 )
     except Exception as e:
