@@ -719,9 +719,9 @@ def skills():
 def news():
     from gtts import gTTS
 
-    empty = False
-    if len(os.listdir('uploads/news')) == 0:
-        empty = True
+    # empty = False
+    # if len(os.listdir('uploads/news')) == 0:
+    #     empty = True
 
     try:
         link = 'https://inshorts.com/en/read'
@@ -739,9 +739,10 @@ def news():
 
             b = box[i].find('div', attrs = {'itemprop':'articleBody'}).text
             tts = gTTS(b)
+
             t = ''.join([i for i in h if i.isalpha()])
-            if empty:
-                tts.save(f'uploads/news/{t}.mp3')
+            # if empty:
+            tts.save(f'uploads/news/{t}.mp3')
 
             l='link not found'
             try:
