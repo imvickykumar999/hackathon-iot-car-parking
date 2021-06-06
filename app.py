@@ -389,7 +389,7 @@ def adafruit():
 
     from Adafruit_IO import Client, Data
 
-    aio = Client('imvickykumar999', 'aio_WEVc29bDxpB2iRzXeMCkEgY4NTRW')
+    aio = Client('imvickykumar999', 'aio_uOXe85j28wfog5Ix3SE8Np0nO4Ke')
     feed = 'ledswitch'
 
     data = aio.receive(feed).value
@@ -731,7 +731,7 @@ def news():
         box = soup.findAll('div', attrs = {'class':'news-card z-depth-1'})
 
         ha,ia,ba,la,ta = [],[],[],[],[]
-        for i in range(len(box)):
+        for i in range(10):
             h = box[i].find('span', attrs = {'itemprop':'headline'}).text
 
             m = box[i].find('div', attrs = {'class':'news-card-image'})
@@ -782,7 +782,7 @@ def news():
                                 ba=ba,
                                 la=la,
                                 ta=ta,
-                                range_ha = range(len(ha)),
+                                range_ha = range(10),
                                 )
     except Exception as e:
         print(e)
