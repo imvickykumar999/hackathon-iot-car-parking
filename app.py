@@ -138,7 +138,7 @@ def converted_covid19():
 
     except urllib.error.URLError as e:
         print(e.reason)
-        data = [{'1key1': '1value1', '1key2': '1value2'}, {'2key1': '2value1', '2key2': '2value2'}]
+        # data = [{'1key1': '1value1', '1key2': '1value2'}, {'2key1': '2value1', '2key2': '2value2'}]
 
     # print('.....step 2')
 
