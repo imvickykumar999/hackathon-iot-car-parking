@@ -118,8 +118,15 @@ def converted_covid19():
 
     try:
         url = f'https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByPin?pincode={pin}&date={date}'
-        headers={'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36'}
 
+        headers={'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.11 (KHTML, like Gecko) Chrome/23.0.1271.64 Safari/537.11',
+         'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+         'Referer': 'https://cssspritegenerator.com',
+         'Accept-Charset': 'ISO-8859-1,utf-8;q=0.7,*;q=0.3',
+         'Accept-Encoding': 'none',
+         'Accept-Language': 'en-US,en;q=0.8',
+         'Connection': 'keep-alive'}
+         
         url_request=urllib.request.Request(url, None, headers) #The assembled request
         response = urllib.request.urlopen(url_request)
         f = response.read() # The data u need
