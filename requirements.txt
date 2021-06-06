@@ -40,3 +40,5 @@ pytest-shutil
 jsonify
 pyttsx3
 gTTS
+xlsxwriter
+secure-smtplib

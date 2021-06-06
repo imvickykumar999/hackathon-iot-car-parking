@@ -67,6 +67,84 @@ ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
+# ====================================================================================
+
+
+@app.route("/covid19")
+def covid19():
+    return render_template('covid19.html',
+                           l=[
+                              {'1key1':'1value1', '1key2':'1value2'},
+                              {'2key1':'2value1', '2key2':'2value2'}
+                             ],
+                           )
+
+@app.route('/converted_covid19', methods=['POST', 'GET'])
+def converted_covid19():
+
+    import urllib.request
+    import json
+    from datetime import datetime
+
+    dnow = datetime.now()
+    s = str(dnow).split()[0].split('-')
+
+    # --------------------------------
+    y = int(s[0])
+    m = int(s[1])
+    d = int(s[2])
+
+    date = f'{d}-{m}-{y}'
+    pin = request.form['pin']
+
+    if pin == '':
+        pin = '302020'
+
+    vaccine = ['COVISHIELD', 'COVAXIN', ][0]
+    min_age_limit = request.form['age']
+
+    if min_age_limit == '':
+        min_age_limit = 18
+    else:
+        min_age_limit = int(min_age_limit)
+
+    toaddr = request.form['email']
+    if toaddr == '':
+        toaddr = "hellovickykumar123@gmail.com"
+
+    filename = f"{toaddr.split('@')[0]}.xlsx"
+    # ----------------------------------
+    # print('.....step 1')
+
+    try:
+        with urllib.request.urlopen(f'https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByPin?pincode={pin}&date={date}') as f:
+            data = json.loads(f.read().decode('utf-8'))['sessions']
+            print(data)
+    except urllib.error.URLError as e:
+        print(e.reason)
+
+    # print('.....step 2')
+
+    l=[]
+    for i, j in enumerate(data):
+        # if j['available_capacity_dose2']:
+            if j['available_capacity_dose1']:
+                if j['vaccine'] == vaccine:
+                    if j['min_age_limit'] == min_age_limit:
+                        l.append(j)
+
+    # print(l)
+    if l:
+        from vicks import covidmail as cov
+        ifsent = cov.covail(l=l,
+                  toaddr = toaddr,
+                  filename = filename,
+                  )
+    else:
+        ifsent = 0
+        print(l, '...............Email not sent................')
+
+    return render_template('covid19.html', l=l, ifsent = ifsent)
 
 # =====================================================
 
