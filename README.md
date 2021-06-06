@@ -4,6 +4,8 @@
 
 ## >>> Run `heroku logs -t -a imvickykumar999` in CMD to check [errors](https://github.com/imvickykumar999/hackathon-iot-car-parking/blob/main/heroku%20logs.png?raw=true) in [deployed site](https://imvickykumar999.herokuapp.com/iotcar).
 
+### [Reason behind the issue is that these COWIN APIs are geofenced and no server outside the Indian region would work because of geo-fencing. You might be getting "Internal Server Error" after deploying your app on heroku and must be working fine when running locally.](https://github.com/cowinapi/developer.cowin/issues/403#issue-912946019)
+
 # `Popularity` dekh rhe ho bhai ki !!! 🤣
 [![429](https://github.com/imvickykumar999/hackathon-iot-car-parking/blob/main/Screenshots/error%20429.jpg?raw=true)](https://stackoverflow.com/a/23367215/11493297)
 
