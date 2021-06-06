@@ -117,9 +117,21 @@ def converted_covid19():
     # print('.....step 1')
 
     try:
-        with urllib.request.urlopen(f'https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByPin?pincode={pin}&date={date}') as f:
-            data = json.loads(f.read().decode('utf-8'))['sessions']
-            print(data)
+        # import urllib.request
+        user_agent = 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.7) Gecko/2009021910 Firefox/3.0.7'
+
+        url = f'https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByPin?pincode={pin}&date={date}'
+        headers={'User-Agent':user_agent,}
+
+        url_request=urllib.request.Request(url, None, headers) #The assembled request
+        response = urllib.request.urlopen(url_request)
+        f = response.read() # The data u need
+        data = json.loads(f.decode('utf-8'))['sessions']
+        print(data)
+
+        # with urllib.request.urlopen(f'https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByPin?pincode={pin}&date={date}') as f:
+        #     data = json.loads(f.read().decode('utf-8'))['sessions']
+
     except urllib.error.URLError as e:
         print(e.reason)
 
