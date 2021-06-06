@@ -117,11 +117,8 @@ def converted_covid19():
     # print('.....step 1')
 
     try:
-        # import urllib.request
-        user_agent = 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.7) Gecko/2009021910 Firefox/3.0.7'
-
         url = f'https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByPin?pincode={pin}&date={date}'
-        headers={'User-Agent':user_agent,}
+        headers={'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36'}
 
         url_request=urllib.request.Request(url, None, headers) #The assembled request
         response = urllib.request.urlopen(url_request)
