@@ -126,7 +126,7 @@ def converted_covid19():
          'Accept-Encoding': 'none',
          'Accept-Language': 'en-US,en;q=0.8',
          'Connection': 'keep-alive'}
-         
+
         url_request=urllib.request.Request(url, None, headers) #The assembled request
         response = urllib.request.urlopen(url_request)
         f = response.read() # The data u need
@@ -138,6 +138,7 @@ def converted_covid19():
 
     except urllib.error.URLError as e:
         print(e.reason)
+        data = [{'1key1': '1value1', '1key2': '1value2'}, {'2key1': '2value1', '2key2': '2value2'}]
 
     # print('.....step 2')
 
