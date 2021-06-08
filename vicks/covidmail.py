@@ -54,7 +54,7 @@ def covail(l=[
 
     s = smtplib.SMTP('smtp.gmail.com', 587)
     s.starttls()
-    s.login(fromaddr, "Hellovix999@")
+    s.login(fromaddr, "*******")
 
     text = msg.as_string()
     s.sendmail(fromaddr, toaddr, text)
