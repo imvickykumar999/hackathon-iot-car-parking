@@ -20,7 +20,7 @@
         <div class="jumbotron jumbotron-fluid">
           <div class="container">
 
-            <div class="alert alert-warning" role="alert">
+            <div class="alert alert-success" role="alert">
               <a href="https://github.com/imvickykumar999/hackathon-iot-car-parking/stargazers">
 
                 <h1 style="color:red;">
@@ -37,19 +37,101 @@
             <br><br>
 
             <form method="post" action="/converted_vickstube">
-              <div class="alert alert-danger" role="alert">
+              <div class="alert alert-success" role="alert">
                 <center>
 
-                  <div class="alert alert-primary" role="alert">
+                  <!-- <div class="alert alert-primary" role="alert">
                     <h3>
                       <strong>Enter YouTube Video Title,<br>Video ID or, URL : </strong>
                     </h3>
 
                     <input type="text" name="ytc" placeholder="Type Title or, Paste URL here"/>
                     <br><br>
-                  </div>
+                  </div> -->
 
-                  <div class="alert alert-success" role="alert">
+                  <div class="alert alert-warning" role="alert">
+                    <h3>
+                      <strong>Voice Search...<br>YouTube Video Title,<br>Video ID or, URL</strong>
+                    </h3>
+
+                    <input type="text" name="ytc" id="result1" placeholder="Voice Search Title or, Paste URL here"/>
+                    <br><br>
+
+                    <!-- <input type="text" id="result1" size="40" maxlength=100 name = "Name" />
+                    <br> -->
+
+                    <div class="alert alert-success" role="alert">
+                      <h5>Click me to <strong>START</strong> speaking...</h5>
+                      <button type = "button" onclick="startConverting();">
+                        <i class="fa fa-microphone"></i>
+                      </button>
+                    </div>
+
+                    <div class="alert alert-danger" role="alert">
+                      <h5>Click me to <strong>STOP</strong> speaking...</h5>
+                    	<button type = "button" onclick="stopConverting();">
+                        <i class="fa fa-remove">
+                        </i>
+                      </button>
+                    </div>
+
+                		<script type="text/javascript">
+
+                  		var overlay = document.getElementById("overlay");
+
+                  			var r = document.getElementById('result1');
+                  			var speechRecognizer = new webkitSpeechRecognition();// a new speech recognition object
+
+                  			//function to start listening to voice and then convert it to text
+                  			function startConverting () {
+                  				if('webkitSpeechRecognition' in window){
+
+                  					speechRecognizer.continuous = true;
+                  					speechRecognizer.interimResults = true;
+                  					speechRecognizer.lang = 'en-IN';
+                  					speechRecognizer.start();
+
+                  					var finalTranscripts = '';
+                  					speechRecognizer.onresult = function(event){
+                  						var interimTranscripts = '';
+
+                  						for(var i = event.resultIndex; i < event.results.length; i++){
+                  							var transcript = event.results[i][0].transcript;
+                  							transcript.replace("\n", "<br>");
+
+                  							if(event.results[i].isFinal){
+                  								finalTranscripts += transcript;
+                  							}
+
+                                else{
+                  								interimTranscripts += transcript;
+                  							}
+                  						}
+                  						r.value = finalTranscripts + interimTranscripts ;
+                  					};
+                  					speechRecognizer.onerror = function (event) {
+                  					};
+                  				}
+
+                          else{
+                  					r.innerHTML = 'No browser support. Please upgrade your browser';
+                  				}
+                  			}
+
+                  			//function to stop listening
+                  			function stopConverting()
+                  			{
+                  				speechRecognizer.stop();
+                  			}
+
+                  		</script>
+                  		<br>
+
+                    </div>
+
+<!-- --------------------------------------------------------- -->
+
+                  <div class="alert alert-primary" role="alert">
                     <h3>
                       <strong>Want to Download <br> Video or Audio ? (V / A) : </strong>
                     </h3>

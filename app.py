@@ -8,7 +8,7 @@ from pymongo.errors import DuplicateKeyError
 from vicks.db import get_user, save_user, save_room, add_room_members, get_rooms_for_user, get_room, is_room_member, \
     get_room_members, is_room_admin, update_room, remove_room_members, save_message, get_messages
 
-from flask_sqlalchemy import SQLAlchemy
+# from flask_sqlalchemy import SQLAlchemy
 import requests, os
 # import pyperclip
 from bs4 import BeautifulSoup as bs
@@ -59,8 +59,8 @@ login_manager.init_app(app)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test.db'
-db = SQLAlchemy(app)
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test.db'
+# db = SQLAlchemy(app)
 
 ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
 
