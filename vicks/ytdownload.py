@@ -9,7 +9,7 @@ def yt_audio(vid = 'KBtk5FUeJbk'):
         youtube_video_url = 'https://youtu.be/' + vid
         yt_obj = YouTube(youtube_video_url)
         yt_obj.title = vid
-        
+
         audio = yt_obj.streams.filter(only_audio=True).first()
         out_file = audio.download(output_path="uploads/audio/")
 
@@ -40,6 +40,7 @@ def yt_video(vid = 'KBtk5FUeJbk'):
         print(yt_obj.title + ' has Downloaded Successfully')
 
     except Exception as e:
+        print(vid)
         print(e)
 
     return vid
