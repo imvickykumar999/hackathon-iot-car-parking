@@ -293,7 +293,7 @@ def vickstube():
     return render_template("ytc.html",
                             dict=dict,
                             tm=945,
-                            ap=1,
+                            ap=0,
                             title='None',
                             wanna_download="0",
                             vid=vid,
