@@ -50,11 +50,13 @@
                   </div> -->
 
                   <div class="alert alert-warning" role="alert">
-                    <h3>
-                      <strong>Voice Search...<br>YouTube Video Title,<br>Video ID or, URL</strong>
-                    </h3>
+                    <div class="alert alert-primary" role="alert">
+                      <h3>
+                        <strong>Voice Search...<br><br>YouTube Video Title,<br>Video ID or,<br><br>Paste URL here...</strong>
+                      </h3>
+                    </div>
 
-                    <input type="text" name="ytc" id="result1" placeholder="Voice Search Title or, Paste URL here"/>
+                    <input type="text" name="ytc" id="result1" placeholder="Voice Search"/>
                     <br><br>
 
                     <!-- <input type="text" id="result1" size="40" maxlength=100 name = "Name" />
@@ -131,13 +133,36 @@
 
 <!-- --------------------------------------------------------- -->
 
-                  <div class="alert alert-primary" role="alert">
+                  <!-- <div class="alert alert-primary" role="alert">
                     <h3>
                       <strong>Want to Download <br> Video or Audio ? (V / A) : </strong>
                     </h3>
 
                     <input type="text" name="ytdownload" placeholder="Write A for Audio, V for Video"/>
                     <br><br>
+                  </div> -->
+
+                  <div class="alert alert-primary" role="alert">
+                    <h3>
+                      <strong>Want to Download ?</strong>
+                    </h3>
+
+                    <div class="custom-control custom-radio">
+                      <input value="0" type="radio" id="audio" name="customRadio" class="form-check-input" checked>
+                      <label class="form-check-label" for="customRadio1">Don't Download</label>
+                    </div>
+
+                    <div class="custom-control custom-radio">
+                      <input value="A" type="radio" id="audio" name="customRadio" class="form-check-input">
+                      <label class="form-check-label" for="customRadio1">Download Audio</label>
+                    </div>
+
+                    <div class="custom-control custom-radio">
+                      <input value="V" type="radio" id="video" name="customRadio" class="form-check-input">
+                      <label class="form-check-label" for="customRadio2">Download Video</label>
+                    </div>
+
+                    <br>
                   </div>
 
                   <!-- <div class="alert alert-success" role="alert"> -->

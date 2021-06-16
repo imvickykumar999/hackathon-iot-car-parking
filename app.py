@@ -345,7 +345,8 @@ def converted_vickstube():
 
     print(vid)
     title = "None"
-    wanna_download = request.form['ytdownload'].upper()
+    wanna_download = request.form['customRadio'].upper()
+    print('............', wanna_download)
 
     # if requests.status_code == 429: # ...shifted 404.html
     #     import shutil
