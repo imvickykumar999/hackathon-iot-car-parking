@@ -1,6 +1,7 @@
 
 import pandas as pd
 df = pd.read_csv ('Event Registration (Responses) - Form Responses 1.csv')
+df = df.drop(df.index[7])
 
 import smtplib
 from email.mime.multipart import MIMEMultipart
@@ -9,13 +10,14 @@ from email.mime.base import MIMEBase
 from email import encoders
 
 fromaddr = "imvickykumar999@gmail.com"
-# toaddr = list(set(df['EMAIL ID ( Team Leader )']))[1:]
-# toaddr.pop(2)
-# print(toaddr)
-toaddr = ['imvickykumar999@gmail.com',
-          'hellovickykumar123@gmail.com',
-          '18erecs080.vicky@rietjaipur.ac.in',
-         ]
+toaddr = list(set(df['EMAIL ID ( Team Leader )']))
+
+# toaddr = ['imvickykumar999@gmail.com',
+#           'hellovickykumar123@gmail.com',
+#           'SHRIKARUNMATHESH S',
+#          ]
+
+print(toaddr)
 
 msg = MIMEMultipart()
 msg['From'] = fromaddr
@@ -41,7 +43,7 @@ Please make all your submissions well before the submission deadline to avoid an
 Kindly Submit your PPT in the given form :
 https://docs.google.com/forms/d/e/1FAIpQLSfZGtewUdn8APM3j7J4D3HLGjtV0f2cMjaBIuP9AegSTNUKww/viewform
 
->>> Kindly use the PPT Template given below for reference.
+>>> Kindly use the PPT Template from this link : https://drive.google.com/file/d/10f-9wGzc3rIK7vI02owY9WKVzDjaRovi/view?usp=sharing
 
 Join our WhatsApp Group for updates and queries: https://chat.whatsapp.com/Jy2ZdTbfmQoEFtQjNubMpO
 
@@ -53,14 +55,15 @@ Organization: Rajasthan Institute of Engineering and Technology, Jaipur.
 '''
 
 msg.attach(MIMEText(body, 'plain'))
-filename = 'Hackhathon 2021 template.pptx'
-attachment = open(filename, "rb")
 
-p = MIMEBase('application', 'octet-stream')
-p.set_payload((attachment).read())
-encoders.encode_base64(p)
-p.add_header('Content-Disposition', "attachment; filename= %s" % filename)
-msg.attach(p)
+# filename = 'Hackhathon 2021 template.pptx'
+# attachment = open(filename, "rb")
+
+# p = MIMEBase('application', 'octet-stream')
+# p.set_payload((attachment).read())
+# encoders.encode_base64(p)
+# p.add_header('Content-Disposition', "attachment; filename= %s" % filename)
+# msg.attach(p)
 
 s = smtplib.SMTP('smtp.gmail.com', 587)
 s.starttls()
