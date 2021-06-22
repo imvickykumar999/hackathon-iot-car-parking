@@ -1,7 +1,7 @@
 
 import pandas as pd
-df = pd.read_csv ('Event Registration (Responses) - Form Responses 1.csv')
-df = df.drop(df.index[7])
+# df = pd.read_csv ('Event Registration (Responses) - Form Responses 1.csv')
+# df = df.drop(df.index[7])
 
 import smtplib
 from email.mime.multipart import MIMEMultipart
@@ -10,12 +10,15 @@ from email.mime.base import MIMEBase
 from email import encoders
 
 fromaddr = "imvickykumar999@gmail.com"
-toaddr = list(set(df['EMAIL ID ( Team Leader )']))
+# toaddr = list(set(df['EMAIL ID ( Team Leader )']))
 
-# toaddr = ['imvickykumar999@gmail.com',
-#           'hellovickykumar123@gmail.com',
-#           'SHRIKARUNMATHESH S',
-#          ]
+toaddr = [
+          'ashish99anonymous@gmail.com',
+          'Sanjusharma14021999@gmail.com',
+          '19ERECS055.rajdeep@rietjaipur.ac.in',
+          'omjeeyadav563@gmail.com',
+          'imvickykumar999@gmail.com',
+         ]
 
 print(toaddr)
 
@@ -23,7 +26,7 @@ msg = MIMEMultipart()
 msg['From'] = fromaddr
 msg['To'] = ','.join(toaddr)
 
-msg['Subject'] = "Hackathon PPT Template"
+msg['Subject'] = ">>> Hackathon PPT Missing !!!"
 body = f'''
 Hi,
 We hope that this email finds you in the best of health.
@@ -40,7 +43,8 @@ You can change your submissions by clicking on ‘Submission’ and then ‘Edit
 
 Please make all your submissions well before the submission deadline to avoid any last-minute problems.
 
-Kindly Submit your PPT in the given form :
+>>> Kindly Submit your PPT in the given form...
+(Rename as TeamName_YourName.pptx) :
 https://docs.google.com/forms/d/e/1FAIpQLSfZGtewUdn8APM3j7J4D3HLGjtV0f2cMjaBIuP9AegSTNUKww/viewform
 
 >>> Kindly use the PPT Template from this link : https://drive.google.com/file/d/10f-9wGzc3rIK7vI02owY9WKVzDjaRovi/view?usp=sharing
@@ -67,7 +71,7 @@ msg.attach(MIMEText(body, 'plain'))
 
 s = smtplib.SMTP('smtp.gmail.com', 587)
 s.starttls()
-s.login(fromaddr, "Hellovix999@")
+s.login(fromaddr, "heyvix999@")
 
 text = msg.as_string()
 s.sendmail(fromaddr, toaddr, text)
