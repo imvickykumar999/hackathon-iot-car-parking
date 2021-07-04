@@ -25,7 +25,7 @@
 
                 <h1 style="color:red;">
                   <strong>
-                    YouTube Comment Reader
+                    YouTube Media Downloader
                     <br>
                     <em style="color:green;">See Code on GitHub</em>
                   </strong>
@@ -216,8 +216,9 @@
 
   <div class="jumbotron">
     <div class="container">
-
       <center>
+
+        {% if wanna_download == "0" %}
         <div class="class="video-container"">
           <iframe
                   src="https://www.youtube.com/embed/{{vid}}?autoplay={{ap}}&start={{tm}}&loop=1"
@@ -225,22 +226,22 @@
                   allow="autoplay; encrypted-media" allowfullscreen>
           </iframe>
         </div>
+        {% endif %}
 
         {% if wanna_download == "V" %}
-        <br><br>
+          <video width="320" controls>
+            <source src="uploads/videos/{{title}}_trimmed.mp4" type="video/mp4">
+          </video>
 
-          <a class="btn btn-primary" href="uploads/videos/{{title}}_trimmed.mp4">
+          <!-- <a class="btn btn-primary" href="uploads/videos/{{title}}_trimmed.mp4">
             <h3>Click me to<br>Download Video</h3>
-          </a>
+          </a> -->
         {% endif %}
 
         {% if wanna_download == "A" %}
-        <br><br>
           <div class="alert alert-danger" role="alert">
-
             <audio controls autoplay muted>
               <source src="uploads/audio/{{title}}_trimmed.mp3" type="audio/mpeg">
-              Your browser does not support the audio element.
             </audio>
           </div>
 

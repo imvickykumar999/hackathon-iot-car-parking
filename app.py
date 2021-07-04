@@ -354,18 +354,19 @@ def converted_vickstube():
     #     os.mkdir('uploads/videos')
 
     from vicks import ytdownload as ytd
-    if wanna_download == "V":
-        ts = request.form['vts']
-        te = request.form['vte']
+    ts = request.form['vts']
+    te = request.form['vte']
 
-        if ts=='':
-            ts=0
-        if te=='':
-            te=600
+    if ts=='':
+        ts=0
+    if te=='':
+        te=600
+
+    if wanna_download == "V":
         title = ytd.yt_video(vid, int(ts), int(te))
 
     elif wanna_download == "A":
-        title = ytd.yt_audio(vid)
+        title = ytd.yt_audio(vid, int(ts), int(te))
     else:
         wanna_download = "0"
 

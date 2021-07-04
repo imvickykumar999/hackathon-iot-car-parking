@@ -58,7 +58,7 @@ def yt_audio(vid = 'KBtk5FUeJbk', ts=60, te=600):
         yt_video(vid = vid, ts=ts, te=te, folder = "uploads/audio/")
 
         clip = mp.VideoFileClip("uploads/audio/"+vid+".mp4")
-        clip = clip.subclip(0,20)
+        clip = clip.subclip(ts, te)
 
         clip.audio.write_audiofile("uploads/audio/"+vid+"_trimmed.mp3")
 
