@@ -44,6 +44,7 @@ def yt_video(vid = 'KBtk5FUeJbk', ts=60, te=600, folder = "uploads/videos/"):
 
         vix(folder+vid+'.mp4', ts, te, targetname=folder+vid+'_trimmed.mp4')
         print(yt_obj.title + ' has Downloaded Successfully')
+        os.remove(folder+vid+'.mp4')
 
     except Exception as e:
         print(vid)
@@ -55,12 +56,14 @@ def yt_video(vid = 'KBtk5FUeJbk', ts=60, te=600, folder = "uploads/videos/"):
 
 def yt_audio(vid = 'KBtk5FUeJbk', ts=60, te=600):
     try:
-        yt_video(vid = vid, ts=ts, te=te, folder = "uploads/audio/")
+        folder = "uploads/audio/"
+        yt_video(vid = vid, ts=ts, te=te, folder = folder)
 
-        clip = mp.VideoFileClip("uploads/audio/"+vid+".mp4")
-        clip = clip.subclip(ts, te)
+        clip = mp.VideoFileClip(folder+vid+"_trimmed.mp4")
+        # clip = clip.subclip(ts, te)
 
-        clip.audio.write_audiofile("uploads/audio/"+vid+"_trimmed.mp3")
+        clip.audio.write_audiofile(folder+vid+"_trimmed.mp3")
+        # os.remove(folder+vid+'_trimmed.mp4')
 
     except Exception as e:
         print(e)
