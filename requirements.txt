@@ -42,3 +42,4 @@ pyttsx3
 gTTS
 xlsxwriter
 secure-smtplib
+moviepy==1.0.3

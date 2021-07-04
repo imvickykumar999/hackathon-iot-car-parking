@@ -3,33 +3,34 @@
 
 from moviepy.video.io.ffmpeg_tools import ffmpeg_extract_subclip as vix
 from pytube import YouTube
+import moviepy.editor as mp
 import os
 
-def yt_audio(vid = 'KBtk5FUeJbk'):
-    try:
-        youtube_video_url = 'https://youtu.be/' + vid
-        yt_obj = YouTube(youtube_video_url)
-        yt_obj.title = vid
-
-        audio = yt_obj.streams.filter(only_audio=True).first()
-        # out_file = audio.download(output_path=r"C:\Users\Vicky\Desktop\Vicks Tube\Audio")
-        out_file = audio.download(output_path="uploads/audio/")
-
-        base, ext = os.path.splitext(out_file)
-        new_file = base + '.mp3'
-
-        os.rename(out_file, new_file)
-        print(yt_obj.title + " has been successfully downloaded.")
-
-    except Exception as e:
-        print(e)
-
-    return vid
+# def yt_audio(vid = 'KBtk5FUeJbk'):
+#     try:
+#         youtube_video_url = 'https://youtu.be/' + vid
+#         yt_obj = YouTube(youtube_video_url)
+#         yt_obj.title = vid
+#
+#         audio = yt_obj.streams.filter(only_audio=True).first()
+#         # out_file = audio.download(output_path=r"C:\Users\Vicky\Desktop\Vicks Tube\Audio")
+#         out_file = audio.download(output_path="uploads/audio/")
+#
+#         base, ext = os.path.splitext(out_file)
+#         new_file = base + '.mp3'
+#
+#         os.rename(out_file, new_file)
+#         print(yt_obj.title + " has been successfully downloaded.")
+#
+#     except Exception as e:
+#         print(e)
+#
+#     return vid
 
 # ---------------------------------------------------------
 
 
-def yt_video(vid = 'KBtk5FUeJbk', ts=60, te=600):
+def yt_video(vid = 'KBtk5FUeJbk', ts=60, te=600, folder = "uploads/videos/"):
     try:
         youtube_video_url = 'https://youtu.be/' + vid
         yt_obj = YouTube(youtube_video_url)
@@ -38,7 +39,6 @@ def yt_video(vid = 'KBtk5FUeJbk', ts=60, te=600):
         yt_obj.title = vid
         filters = yt_obj.streams.filter(progressive=True, file_extension='mp4')
 
-        folder = "uploads/videos/"
         # filters.get_highest_resolution().download(r"C:\Users\Vicky\Desktop\Vicks Tube\Video")
         filters.get_highest_resolution().download(folder)
 
@@ -47,6 +47,22 @@ def yt_video(vid = 'KBtk5FUeJbk', ts=60, te=600):
 
     except Exception as e:
         print(vid)
+        print(e)
+
+    return vid
+
+# ---------------------------------------------------------
+
+def yt_audio(vid = 'KBtk5FUeJbk', ts=60, te=600):
+    try:
+        yt_video(vid = vid, ts=ts, te=te, folder = "uploads/audio/")
+
+        clip = mp.VideoFileClip("uploads/audio/"+vid+".mp4")
+        clip = clip.subclip(0,20)
+
+        clip.audio.write_audiofile("uploads/audio/"+vid+"_trimmed.mp3")
+
+    except Exception as e:
         print(e)
 
     return vid

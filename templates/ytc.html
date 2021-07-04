@@ -180,9 +180,21 @@
                     <br>
                   </div>
 
-                  <input type="text" name="vts" placeholder="time in seconds"/>
-                  <input type="text" name="vte" placeholder="time in seconds"/>
+                  <div class="alert alert-danger" role="alert">
+                    <h2>
+                      <strong>
+                        Enter Trim timing
+                      </strong>
+                    </h2>
 
+                    <div class="alert alert-primary" role="alert">
+                      <input type="text" name="vts" placeholder="intial time in seconds"/>
+                      <br>
+                      <input type="text" name="vte" placeholder="final time in seconds"/>
+                    </div>
+                  </div>
+
+                  <br>
                   <!-- <div class="alert alert-success" role="alert"> -->
                     <input type="image"
                            src="../static/logo/submit.png"
@@ -227,7 +239,7 @@
           <div class="alert alert-danger" role="alert">
 
             <audio controls autoplay muted>
-              <source src="uploads/audio/{{title}}.mp3" type="audio/mpeg">
+              <source src="uploads/audio/{{title}}_trimmed.mp3" type="audio/mpeg">
               Your browser does not support the audio element.
             </audio>
           </div>
