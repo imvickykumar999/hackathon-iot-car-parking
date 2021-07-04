@@ -11,8 +11,8 @@ def yt_audio(vid = 'KBtk5FUeJbk'):
         yt_obj.title = vid
 
         audio = yt_obj.streams.filter(only_audio=True).first()
-        out_file = audio.download(output_path=r"C:\Users\Vicky\Desktop\Vicks Tube\Audio")
-        # out_file = audio.download(output_path="uploads/audio/")
+        # out_file = audio.download(output_path=r"C:\Users\Vicky\Desktop\Vicks Tube\Audio")
+        out_file = audio.download(output_path="uploads/audio/")
 
         base, ext = os.path.splitext(out_file)
         new_file = base + '.mp3'
@@ -37,8 +37,8 @@ def yt_video(vid = 'KBtk5FUeJbk'):
         yt_obj.title = vid
         filters = yt_obj.streams.filter(progressive=True, file_extension='mp4')
 
-        filters.get_highest_resolution().download(r"C:\Users\Vicky\Desktop\Vicks Tube\Video")
-        # filters.get_highest_resolution().download("uploads/videos/")
+        # filters.get_highest_resolution().download(r"C:\Users\Vicky\Desktop\Vicks Tube\Video")
+        filters.get_highest_resolution().download("uploads/videos/")
         print(yt_obj.title + ' has Downloaded Successfully')
 
     except Exception as e:
