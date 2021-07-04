@@ -180,6 +180,9 @@
                     <br>
                   </div>
 
+                  <input type="text" name="vts" placeholder="time in seconds"/>
+                  <input type="text" name="vte" placeholder="time in seconds"/>
+
                   <!-- <div class="alert alert-success" role="alert"> -->
                     <input type="image"
                            src="../static/logo/submit.png"
@@ -214,7 +217,7 @@
         {% if wanna_download == "V" %}
         <br><br>
 
-          <a class="btn btn-primary" href="uploads/videos/{{title}}.mp4">
+          <a class="btn btn-primary" href="uploads/videos/{{title}}_trimmed.mp4">
             <h3>Click me to<br>Download Video</h3>
           </a>
         {% endif %}

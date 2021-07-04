@@ -1,6 +1,7 @@
 
 # youtube_video_url = 'https://youtu.be/GbqGmNsWDaE?list=RDMM'
 
+from moviepy.video.io.ffmpeg_tools import ffmpeg_extract_subclip as vix
 from pytube import YouTube
 import os
 
@@ -28,7 +29,7 @@ def yt_audio(vid = 'KBtk5FUeJbk'):
 # ---------------------------------------------------------
 
 
-def yt_video(vid = 'KBtk5FUeJbk'):
+def yt_video(vid = 'KBtk5FUeJbk', ts=60, te=600):
     try:
         youtube_video_url = 'https://youtu.be/' + vid
         yt_obj = YouTube(youtube_video_url)
@@ -37,8 +38,11 @@ def yt_video(vid = 'KBtk5FUeJbk'):
         yt_obj.title = vid
         filters = yt_obj.streams.filter(progressive=True, file_extension='mp4')
 
+        folder = "uploads/videos/"
         # filters.get_highest_resolution().download(r"C:\Users\Vicky\Desktop\Vicks Tube\Video")
-        filters.get_highest_resolution().download("uploads/videos/")
+        filters.get_highest_resolution().download(folder)
+
+        vix(folder+vid+'.mp4', ts, te, targetname=folder+vid+'_trimmed.mp4')
         print(yt_obj.title + ' has Downloaded Successfully')
 
     except Exception as e:
