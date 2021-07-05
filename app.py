@@ -288,7 +288,7 @@ def vickstube():
     from vicks import ytc
 
     vid = 'Cpc_rHf1U6g'
-    prefill = request.args.get('url')
+    prefill = request.args.get('url').strip()
     print(prefill)
     dict = ytc.comments(vid)
 
