@@ -287,10 +287,10 @@ def converted_report():
 def vickstube():
 
     vid = 'Cpc_rHf1U6g'
-    prefill = request.args.get('url')
+    prefill = request.args.get('list')
 
     if prefill == None:
-        prefill = ''
+        prefill = request.args.get('url')
     print(prefill)
 
     from vicks import ytc
