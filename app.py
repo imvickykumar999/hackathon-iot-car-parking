@@ -283,17 +283,20 @@ def converted_report():
     ld_returnamount = ld_returnamount
                            )
 
-@app.route("/vickstube")
+@app.route("/vickstube", methods=['GET'])
 def vickstube():
     from vicks import ytc
 
     vid = 'Cpc_rHf1U6g'
+    prefill = request.args.get('url')
+    print(prefill)
     dict = ytc.comments(vid)
 
     return render_template("ytc.html",
                             dict=dict,
                             tm=945,
                             ap=0,
+                            prefill = prefill,
                             title='None',
                             video_type="0",
                             vid=vid,
