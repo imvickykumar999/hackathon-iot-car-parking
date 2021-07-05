@@ -36,6 +36,58 @@
 
             <br><br>
 
+            <div class="jumbotron">
+              <div class="container">
+                <center>
+
+                  {% if video_type == "0" %}
+                  <div class="class="video-container"">
+                    <iframe
+                            src="https://www.youtube.com/embed/{{vid}}?autoplay={{ap}}&start={{tm}}&loop=1"
+                            frameborder="0"
+                            width="720" height="405"
+                            allow="autoplay; encrypted-media" allowfullscreen>
+                    </iframe>
+                  </div>
+                  {% endif %}
+
+                  {% if video_type == "P" %}
+                    <iframe src="https://www.youtube.com/embed/videoseries?list={{pid}}"
+                            width="720" height="405"
+                            frameborder="1"
+                            allowfullscreen="allowfullscreen"
+                            modestbranding="1">
+                    </iframe>
+                  {% endif %}
+
+                  {% if video_type == "V" %}
+                    <video width="720" height="405" controls>
+                      <source src="uploads/videos/{{title}}_trimmed.mp4" type="video/mp4">
+                    </video>
+
+                    <!-- <a class="btn btn-primary" href="uploads/videos/{{title}}_trimmed.mp4">
+                      <h3>Click me to<br>Download Video</h3>
+                    </a> -->
+                  {% endif %}
+
+                  {% if video_type == "A" %}
+                    <div class="alert alert-danger" role="alert">
+                      <audio controls autoplay muted>
+                        <source src="uploads/audio/{{title}}_trimmed.mp3" type="audio/mpeg">
+                      </audio>
+                    </div>
+
+                    <!-- <a class="btn btn-primary" href="uploads/audio/{{title}}.mp3">
+                      <h3>Click me to<br>Download Audio</h3>
+                    </a> -->
+                  {% endif %}
+
+                </center>
+              </div>
+            </div>
+
+            <br><br>
+
             <form method="post" action="/converted_vickstube">
               <div class="alert alert-success" role="alert">
                 <center>
@@ -225,56 +277,6 @@
 
           </div>
         </div>
-
-      </center>
-    </div>
-  </div>
-
-  <div class="jumbotron">
-    <div class="container">
-      <center>
-
-        {% if video_type == "0" %}
-        <div class="class="video-container"">
-          <iframe
-                  src="https://www.youtube.com/embed/{{vid}}?autoplay={{ap}}&start={{tm}}&loop=1"
-                  frameborder="0"
-                  width="720" height="405"
-                  allow="autoplay; encrypted-media" allowfullscreen>
-          </iframe>
-        </div>
-        {% endif %}
-
-        {% if video_type == "P" %}
-          <iframe src="https://www.youtube.com/embed/videoseries?list={{pid}}"
-                  width="720" height="405"
-                  frameborder="1"
-                  allowfullscreen="allowfullscreen"
-                  modestbranding="1">
-          </iframe>
-        {% endif %}
-
-        {% if video_type == "V" %}
-          <video width="320" controls>
-            <source src="uploads/videos/{{title}}_trimmed.mp4" type="video/mp4">
-          </video>
-
-          <!-- <a class="btn btn-primary" href="uploads/videos/{{title}}_trimmed.mp4">
-            <h3>Click me to<br>Download Video</h3>
-          </a> -->
-        {% endif %}
-
-        {% if video_type == "A" %}
-          <div class="alert alert-danger" role="alert">
-            <audio controls autoplay muted>
-              <source src="uploads/audio/{{title}}_trimmed.mp3" type="audio/mpeg">
-            </audio>
-          </div>
-
-          <!-- <a class="btn btn-primary" href="uploads/audio/{{title}}.mp3">
-            <h3>Click me to<br>Download Audio</h3>
-          </a> -->
-        {% endif %}
 
       </center>
     </div>
