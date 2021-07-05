@@ -222,56 +222,77 @@
                     <br><br>
                   </div> -->
 
-                  <div class="alert alert-primary" role="alert">
-                    <h3>
-                      <strong>Want to Download ?</strong>
-                    </h3>
+                  <br>
 
-                    <br>
-                    <div class="alert alert-danger" role="alert">
-                      <div class="custom-control custom-radio">
-                        <input value="0" type="radio" id="audio" name="customRadio" class="form-check-input" checked>
-                        <label class="form-check-label" for="customRadio1">
-                          <h5>Don't Download</h5>
-                        </label>
-                      </div>
-                    </div>
+                  <a class="btn btn-warning"
+                     data-toggle="collapse"
+                     role="button"
+                     href="#download"
+                     aria-expanded="false"
+                     aria-controls="download">
 
-                    <br>
-                    <div class="alert alert-success" role="alert">
-                      <div class="custom-control custom-radio">
-                        <input value="A" type="radio" id="audio" name="customRadio" class="form-check-input">
-                        <label class="form-check-label" for="customRadio1">
-                          <h5>Download Audio</h5>
-                        </label>
-                      </div>
-                    </div>
+                     <!-- <div class="alert alert-primary" role="alert"> -->
+                       <h3>
+                         <strong>Click Me to Download</strong>
+                       </h3>
+                    <!-- </div> -->
+                  </a>
 
-                    <br>
-                    <div class="alert alert-warning" role="alert">
-                      <div class="custom-control custom-radio">
-                        <input value="V" type="radio" id="video" name="customRadio" class="form-check-input">
-                        <label class="form-check-label" for="customRadio2">
-                          <h5>Download Video</h5>
-                        </label>
-                      </div>
-                    </div>
+                  <br><br>
 
-                    <br>
-                  </div>
-
-                  <div class="alert alert-danger" role="alert">
-                    <h2>
-                      <strong>
-                        Enter Trim timing
-                      </strong>
-                    </h2>
-
+                  <div class="collapse" id="download">
                     <div class="alert alert-primary" role="alert">
-                      <input type="text" name="vts" placeholder="intial time in seconds"/>
+                      <h3>
+                        <strong>Advanced Settings</strong>
+                      </h3>
+
                       <br>
-                      <input type="text" name="vte" placeholder="final time in seconds"/>
+                      <div class="alert alert-danger" role="alert">
+                        <div class="custom-control custom-radio">
+                          <input value="0" type="radio" id="audio" name="customRadio" class="form-check-input" checked>
+                          <label class="form-check-label" for="customRadio1">
+                            <h5>Don't Download</h5>
+                          </label>
+                        </div>
+                      </div>
+
+                      <br>
+                      <div class="alert alert-success" role="alert">
+                        <div class="custom-control custom-radio">
+                          <input value="A" type="radio" id="audio" name="customRadio" class="form-check-input">
+                          <label class="form-check-label" for="customRadio1">
+                            <h5>Download Audio</h5>
+                          </label>
+                        </div>
+                      </div>
+
+                      <br>
+                      <div class="alert alert-warning" role="alert">
+                        <div class="custom-control custom-radio">
+                          <input value="V" type="radio" id="video" name="customRadio" class="form-check-input">
+                          <label class="form-check-label" for="customRadio2">
+                            <h5>Download Video</h5>
+                          </label>
+                        </div>
+                      </div>
+
                     </div>
+                    <br><br>
+
+                    <div class="alert alert-danger" role="alert">
+                      <h2>
+                        <strong>
+                          Enter Trim Timing
+                        </strong>
+                      </h2>
+
+                      <div class="alert alert-primary" role="alert">
+                        <input type="text" name="vts" placeholder="intial time in seconds"/>
+                        <br>
+                        <input type="text" name="vte" placeholder="final time in seconds"/>
+                      </div>
+                    </div>
+
                   </div>
 
                   <br>
