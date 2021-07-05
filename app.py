@@ -295,7 +295,7 @@ def vickstube():
                             tm=945,
                             ap=0,
                             title='None',
-                            wanna_download="0",
+                            video_type="0",
                             vid=vid,
                             )
 
@@ -317,23 +317,28 @@ def converted_vickstube():
     if url == '':
         url = 'https://www.youtube.com/watch?v=Cpc_rHf1U6g'
 
-    s = url.split('/')
-    tm=0
+    pid = vid = None
+    try:
+        pid = url.split('list=')[1].split('&')[0]
+        tm = 945
+    except:
+        s = url.split('/')
+        tm=0
 
-    if s[0] != 'https:':
-        vid = YoutubeSearch(s[0], max_results = 1).to_dict()[0]['id']
-
-    else:
-        if s[2] == 'www.youtube.com':
-            vid = s[3].split('=')[1].split('?')[0]
-
-        elif s[2] == 'youtu.be':
-            vid = s[3].split('?')[0]
+        if s[0] != 'https:':
+            vid = YoutubeSearch(s[0], max_results = 1).to_dict()[0]['id']
 
         else:
-            vid = 'Cpc_rHf1U6g'
-            tm = 945
-            print("Sorry... Code couldn't be extracted !!!")
+            if s[2] == 'www.youtube.com':
+                vid = s[3].split('=')[1].split('?')[0]
+
+            elif s[2] == 'youtu.be':
+                vid = s[3].split('?')[0]
+
+            else:
+                vid = 'Cpc_rHf1U6g'
+                tm = 945
+                print("Sorry... Code couldn't be extracted !!!")
 
     try:
         com = ytc.comments(vid)
@@ -345,8 +350,8 @@ def converted_vickstube():
 
     print(vid)
     title = "None"
-    wanna_download = request.form['customRadio'].upper()
-    print('............', wanna_download)
+    video_type = request.form['customRadio'].upper()
+    print('............', video_type)
 
     # if requests.status_code == 429: # ...shifted 404.html
     #     import shutil
@@ -362,21 +367,25 @@ def converted_vickstube():
     if te=='':
         te=600
 
-    if wanna_download == "V":
-        title = ytd.yt_video(vid, int(ts), int(te))
+    if pid == None:
+        if video_type == "V":
+            title = ytd.yt_video(vid, int(ts), int(te))
 
-    elif wanna_download == "A":
-        title = ytd.yt_audio(vid, int(ts), int(te))
+        elif video_type == "A":
+            title = ytd.yt_audio(vid, int(ts), int(te))
+        else:
+            video_type = "0"
     else:
-        wanna_download = "0"
+        video_type = "P"
 
-    print(title)
+    print(title, pid)
     return render_template("ytc.html",
                             dict=com,
                             tm=tm,
                             ap=0,
                             title=title,
-                            wanna_download=wanna_download,
+                            video_type=video_type,
+                            pid = pid,
                             vid=vid,
                             )
 

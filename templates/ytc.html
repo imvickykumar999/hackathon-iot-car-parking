@@ -52,7 +52,7 @@
                   <div class="alert alert-warning" role="alert">
                     <div class="alert alert-primary" role="alert">
                       <h3>
-                        <strong>Voice Search...<br><br>YouTube Video Title,<br>Video ID or,<br><br>Paste URL here...</strong>
+                        <strong>Voice Search...<br><br>YouTube Video Title,<br>Video ID or,<br><br>Paste Video or,<br>Playlist URL here...</strong>
                       </h3>
                     </div>
 
@@ -218,17 +218,27 @@
     <div class="container">
       <center>
 
-        {% if wanna_download == "0" %}
+        {% if video_type == "0" %}
         <div class="class="video-container"">
           <iframe
                   src="https://www.youtube.com/embed/{{vid}}?autoplay={{ap}}&start={{tm}}&loop=1"
                   frameborder="0"
+                  width="720" height="405"
                   allow="autoplay; encrypted-media" allowfullscreen>
           </iframe>
         </div>
         {% endif %}
 
-        {% if wanna_download == "V" %}
+        {% if video_type == "P" %}
+          <iframe src="https://www.youtube.com/embed/videoseries?list={{pid}}"
+                  width="720" height="405"
+                  frameborder="1"
+                  allowfullscreen="allowfullscreen"
+                  modestbranding="1">
+          </iframe>
+        {% endif %}
+
+        {% if video_type == "V" %}
           <video width="320" controls>
             <source src="uploads/videos/{{title}}_trimmed.mp4" type="video/mp4">
           </video>
@@ -238,7 +248,7 @@
           </a> -->
         {% endif %}
 
-        {% if wanna_download == "A" %}
+        {% if video_type == "A" %}
           <div class="alert alert-danger" role="alert">
             <audio controls autoplay muted>
               <source src="uploads/audio/{{title}}_trimmed.mp3" type="audio/mpeg">
