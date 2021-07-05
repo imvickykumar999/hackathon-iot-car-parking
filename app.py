@@ -287,13 +287,13 @@ def converted_report():
 def vickstube():
 
     vid = 'Cpc_rHf1U6g'
-    pid = request.args.get('list')
+    prefill = request.args.get('list')
 
-    if pid == None:
-        pid = request.args.get('vix')
-        if pid == None:
-            pid = ''
-    print(pid)
+    if prefill == None:
+        prefill = request.args.get('vix')
+        if prefill == None:
+            prefill = ''
+    print(prefill)
 
     from vicks import ytc
     dict = ytc.comments(vid)
@@ -302,10 +302,10 @@ def vickstube():
                             dict=dict,
                             tm=945,
                             ap=0,
-                            pid = pid,
-                            len = len(pid),
+                            prefill = prefill,
+                            len = len(prefill),
                             title='None',
-                            video_type="P",
+                            video_type="0",
                             vid=vid,
                             )
 
