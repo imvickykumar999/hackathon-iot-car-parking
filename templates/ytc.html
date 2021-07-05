@@ -46,9 +46,9 @@
       <center>
 
         {% if video_type == "0" %}
-        <div class="class="video-container"">
+        <div video-container>
           <iframe
-                  src="https://www.youtube.com/embed/{{vid}}?autoplay={{ap}}&start={{tm}}&loop=1"
+                  src="https://www.youtube.com/embed/{{pid}}?autoplay={{ap}}&start={{tm}}&loop=1"
                   frameborder="0"
                   width="720" height="405"
                   allow="autoplay; encrypted-media" allowfullscreen>
@@ -136,7 +136,11 @@
                       </a>
                     </div>
 
-                    <input type="text" name="ytc" value="{{prefill}}" id="result1" placeholder="Voice Search"/>
+                    {% if pid == None %}
+                      <input type="text" name="ytc" value="https://www.youtube.com/watch?v={{vid}}" id="result1" placeholder="Voice Search"/>
+                    {% else %}
+                      <input type="text" name="ytc" value="https://www.youtube.com/watch?list={{pid}}" id="result1" placeholder="Voice Search"/>
+                    {% endif %}
                     <br><br>
 
                     <!-- <input type="text" id="result1" size="40" maxlength=100 name = "Name" />
