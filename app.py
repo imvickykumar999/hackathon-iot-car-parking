@@ -285,27 +285,21 @@ def converted_report():
 
 @app.route("/vickstube", methods=['GET'])
 def vickstube():
-
-    vid = request.args.get('vid')
-    pid = None
-
-    if vid == None:
-        vid = 'Cpc_rHf1U6g'
-        video_type="0"
-    else:
-        video_type="P"
-        pid = request.args.get('pid')
-
     from vicks import ytc
+
+    vid = 'Cpc_rHf1U6g'
+    prefill = request.args.get('url')
+    print(prefill)
     dict = ytc.comments(vid)
 
     return render_template("ytc.html",
                             dict=dict,
                             tm=945,
                             ap=0,
-                            pid = pid,
+                            prefill = prefill,
+                            len = len(prefill),
                             title='None',
-                            video_type=video_type,
+                            video_type="0",
                             vid=vid,
                             )
 
