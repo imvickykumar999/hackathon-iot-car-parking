@@ -290,7 +290,7 @@ def vickstube():
     prefill = request.args.get('list')
 
     if prefill == None:
-        prefill = request.args.get('url')
+        prefill = request.args.get('vix')
         if prefill == None:
             prefill = ''
     print(prefill)
