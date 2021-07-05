@@ -291,6 +291,8 @@ def vickstube():
 
     if prefill == None:
         prefill = request.args.get('url')
+        if prefill == None:
+            prefill = ''
     print(prefill)
 
     from vicks import ytc
