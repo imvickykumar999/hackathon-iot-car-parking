@@ -69,10 +69,10 @@ def comments(video_id = 'Cpc_rHf1U6g'):
     # video_comments(video_id)
 
     # dictionary to json file...
-    # import json
-    #
-    # with open('comments.json', 'w') as fp:
-    #     json.dump(dict, fp)
+    import json
+    
+    with open('comments.json', 'w') as fp:
+        json.dump(dict, fp)
 
     return dict
 

@@ -88,7 +88,7 @@
       <div class="container">
 
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-          <a style="color:red;" class="navbar-brand" href="{{url_for('vickstube')}}"><strong>Vicks Tube</strong></a>
+          <a style="color:red;" class="navbar-brand" href="/vickstube?list=PLyeWzbpbicN1n2b-3fEeHylXQis5VcRUM"><strong>Vicks-Tube</strong></a>
 
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -100,7 +100,31 @@
               <div class="dropdown-divider"></div>
 
               <li class="nav-item dropdown">
-                <a style="color:blue;" class="nav-link dropdown-toggle" href="{{url_for('chat')}}" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a style="color:blue;" class="nav-link dropdown-toggle" href="{{url_for('news')}}" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <strong>Web-Services</strong>
+                </a>
+
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a style="color:green;" class="dropdown-item" href="{{url_for('share')}}"><strong><em>Share</em></strong></a>
+                  <a style="color:blue;" class="dropdown-item" href="{{url_for('morse')}}"><em><strong>Morse</strong></em></a>
+                  <a style="color:red;" class="dropdown-item" href="{{url_for('qrcode')}}"><strong>QR-Code</strong></a>
+                  <a style="color:green;" class="dropdown-item" href="{{url_for('ipynb')}}"><strong><em>ipynb</em></strong></a>
+                  <a style="color:blue;" class="dropdown-item" href="{{url_for('news')}}"><strong>News</strong></a>
+                  <a style="color:red;" class="dropdown-item" href="{{url_for('playfair_cipher')}}"><strong>Playfair Cipher</strong></a>
+                  <a style="color:blue;" class="dropdown-item" href="{{url_for('iotcar')}}"><strong>IOT Car</strong></a>
+                  <a style="color:green;" class="dropdown-item" href="{{url_for('adafruit')}}"><strong>Home Automation</strong></a>
+                  <a style="color:red;" class="dropdown-item" href="{{url_for('report')}}"><strong>Certificate</strong></a>
+                  <a style="color:blue;" class="dropdown-item" href="{{url_for('vickstube')}}"><strong>VicksTube</strong></a>
+                  <a style="color:green;" class="dropdown-item" href="{{url_for('firechat')}}"><strong>Firebase GroupChat</strong></a>
+
+                  <div class="dropdown-divider"></div>
+                    <a style="color:red;" class="dropdown-item" href="{{url_for('iotled')}}"><strong>IOT LED</strong></a>
+
+                </div>
+              </li>
+
+              <li class="nav-item dropdown">
+                <a style="color:red;" class="nav-link dropdown-toggle" href="{{url_for('chat')}}" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <strong>Chat-Room</strong>
                 </a>
 
@@ -127,30 +151,6 @@
 
                   <div class="dropdown-divider"></div>
                   <a style="color:green;" class="dropdown-item" href="{{url_for('index')}}"><strong>Projects</strong></a>
-                </div>
-              </li>
-
-              <li class="nav-item dropdown">
-                <a style="color:red;" class="nav-link dropdown-toggle" href="{{url_for('news')}}" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <strong>IOT Services</strong>
-                </a>
-
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a style="color:green;" class="dropdown-item" href="{{url_for('share')}}"><strong><em>Share</em></strong></a>
-                  <a style="color:blue;" class="dropdown-item" href="{{url_for('morse')}}"><em><strong>Morse</strong></em></a>
-                  <a style="color:red;" class="dropdown-item" href="{{url_for('qrcode')}}"><strong>QR-Code</strong></a>
-                  <a style="color:green;" class="dropdown-item" href="{{url_for('ipynb')}}"><strong><em>ipynb</em></strong></a>
-                  <a style="color:blue;" class="dropdown-item" href="{{url_for('news')}}"><strong>News</strong></a>
-                  <a style="color:red;" class="dropdown-item" href="{{url_for('playfair_cipher')}}"><strong>Playfair Cipher</strong></a>
-                  <a style="color:blue;" class="dropdown-item" href="{{url_for('iotcar')}}"><strong>IOT Car</strong></a>
-                  <a style="color:green;" class="dropdown-item" href="{{url_for('adafruit')}}"><strong>Home Automation</strong></a>
-                  <a style="color:red;" class="dropdown-item" href="{{url_for('report')}}"><strong>Certificate</strong></a>
-                  <a style="color:blue;" class="dropdown-item" href="{{url_for('vickstube')}}"><strong>VicksTube</strong></a>
-                  <a style="color:green;" class="dropdown-item" href="{{url_for('firechat')}}"><strong>Firebase GroupChat</strong></a>
-
-                  <div class="dropdown-divider"></div>
-                    <a style="color:red;" class="dropdown-item" href="{{url_for('iotled')}}"><strong>IOT LED</strong></a>
-
                 </div>
               </li>
 
