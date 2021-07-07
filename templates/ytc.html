@@ -405,20 +405,11 @@
 
                           {% if value %}
 
-                            <a class="btn btn-primary" data-toggle="collapse" href="#{{key}}" role="button" aria-expanded="false" aria-controls="{{key}}">
+                            <a class="btn btn-primary" data-toggle="collapse" href="#{{key[0:2]}}" role="button" aria-expanded="false" aria-controls="{{key}}">
                               <h1>{{key}}</h1>
                             </a>
 
-                          {% else %}
-
-                          <h1>
-                            {{key}}
-                          </h1>
-
-                          {% endif %}
-
-                          {% if value %}
-                            <div class="collapse" id="{{key}}">
+                            <div class="collapse" id="{{key[0:2]}}">
                               <div class="card card-body">
 
                                 <div>
@@ -435,6 +426,13 @@
 
                               </div>
                             </div>
+
+                          {% else %}
+
+                          <h1>
+                            {{key}}
+                          </h1>
+
                           {% endif %}
 
                         </div>

@@ -358,11 +358,11 @@ def converted_vickstube():
         info = ytc.tvl(vid)
     except:
         com = {
-            "Comments are...": ["Disabled by user !"],
-            "Sorry...": ["Comments are not Visible !"],
+            "Comments": ["...are Disabled by user !", "Sorry ...or,", ],
+            "Playlist" : ["...do not support Comments !",],
         }
 
-    print(vid)
+    print(com)
     title = "None"
     video_type = request.form['customRadio'].upper()
     print('............', video_type)
