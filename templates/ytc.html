@@ -55,15 +55,17 @@
           </iframe>
 
           <br><br>
-          <strong>
-            <a href="/vickstube?vix={{vid}}">
+          <div class="alert alert-success" role="alert">
+            <strong>
+              <a href="/vickstube?vix={{vid}}">
 
-              <h3>
-                Share Video
-              </h3>
+                <h3>
+                  Share Embedded Video
+                </h3>
 
-            </a>
-          </strong>
+              </a>
+            </strong>
+          </div>
         </div>
         {% endif %}
 
@@ -76,15 +78,17 @@
           </iframe>
 
           <br><br>
-          <strong>
-            <a href="/vickstube?list={{pid}}">
+          <div class="alert alert-success" role="alert">
+            <strong>
+              <a href="/vickstube?list={{pid}}">
 
-              <h3>
-                Share Playlist
-              </h3>
+                <h3>
+                  Share Embedded Playlist
+                </h3>
 
-            </a>
-          </strong>
+              </a>
+            </strong>
+          </div>
         {% endif %}
 
         {% if video_type == "V" %}
@@ -95,6 +99,19 @@
           <!-- <a class="btn btn-primary" href="uploads/videos/{{title}}_trimmed.mp4">
             <h3>Click me to<br>Download Video</h3>
           </a> -->
+
+          <br><br>
+          <div class="alert alert-success" role="alert">
+            <strong>
+              <a href="/uploads/videos/{{title}}_trimmed.mp4">
+
+                <h3>
+                  Share Downloaded Video
+                </h3>
+
+              </a>
+            </strong>
+          </div>
         {% endif %}
 
         {% if video_type == "A" %}
@@ -107,6 +124,19 @@
           <!-- <a class="btn btn-primary" href="uploads/audio/{{title}}.mp3">
             <h3>Click me to<br>Download Audio</h3>
           </a> -->
+
+          <br><br>
+          <div class="alert alert-success" role="alert">
+            <strong>
+              <a href="uploads/audio/{{title}}_trimmed.mp3">
+
+                <h3>
+                  Share Downloaded Audio
+                </h3>
+
+              </a>
+            </strong>
+          </div>
         {% endif %}
 
       </center>
