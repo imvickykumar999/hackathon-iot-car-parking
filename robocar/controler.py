@@ -98,6 +98,10 @@ def xAxis(angle):
         time.sleep(.1)
         ReleaseKey(A)
         time.sleep(.1)
+        ReleaseKey(W)
+        time.sleep(.1)
+        ReleaseKey(S)
+        time.sleep(.1)
     yAxis()
 
 def yAxis():
