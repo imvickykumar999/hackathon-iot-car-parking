@@ -288,9 +288,28 @@ def vickstube():
 
     vid = 'Cpc_rHf1U6g'
     prefill = request.args.get('list')
+    video_type="P"
 
     if prefill == None:
         prefill = request.args.get('vix')
+        video_type="0"
+        s = prefill.split('/')
+        tm=0
+
+        if s[0] != 'https:':
+            vid = YoutubeSearch(s[0], max_results = 1).to_dict()[0]['id']
+
+        else:
+            if s[2] == 'www.youtube.com':
+                vid = s[3].split('=')[1].split('?')[0]
+
+            elif s[2] == 'youtu.be':
+                vid = s[3].split('?')[0]
+
+            else:
+                vid = 'Cpc_rHf1U6g'
+                tm = 945
+                print("Sorry... Code couldn't be extracted !!!")
         if prefill == None:
             prefill = ''
     print(prefill)
@@ -306,7 +325,7 @@ def vickstube():
                             prefill = prefill,
                             len = len(prefill),
                             title='None',
-                            video_type="0",
+                            video_type=video_type,
                             vid=vid,
                             info=info,
                             )
