@@ -91,7 +91,7 @@ def tvl(vid = 'hlznpxNGFGQ'):
 
     video_response = video_request.execute()
     title = video_response['items'][0]['snippet']['title']
-    likes = video_response['items'][0]['statistics']['likeCount']
-    views = video_response['items'][0]['statistics']['viewCount']
+    likes = int(video_response['items'][0]['statistics']['likeCount'])
+    views = int(video_response['items'][0]['statistics']['viewCount'])
 
-    return title, likes, views
+    return title, f'{likes:,}', f'{views:,}'
