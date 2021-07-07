@@ -75,3 +75,23 @@ def comments(video_id = 'Cpc_rHf1U6g'):
     #     json.dump(dict, fp)
 
     return dict
+
+
+def tvl(vid = 'hlznpxNGFGQ'):
+    from googleapiclient.discovery import build
+
+    # video_id = input('Enter video URL or ID : ')
+    video_id = vid
+
+    youtube = build('youtube','v3',developerKey='AIzaSyCcJX4qdbo9caqxZSKDmuBjNVWfvq8_Wcs')
+    video_request=youtube.videos().list(
+        part='snippet,statistics',
+        id=video_id
+    )
+
+    video_response = video_request.execute()
+    title = video_response['items'][0]['snippet']['title']
+    likes = video_response['items'][0]['statistics']['likeCount']
+    views = video_response['items'][0]['statistics']['viewCount']
+
+    return title, likes, views

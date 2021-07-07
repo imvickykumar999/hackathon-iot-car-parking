@@ -297,6 +297,7 @@ def vickstube():
 
     from vicks import ytc
     dict = ytc.comments(vid)
+    info = ytc.tvl(vid)
 
     return render_template("ytc.html",
                             dict=dict,
@@ -307,6 +308,7 @@ def vickstube():
                             title='None',
                             video_type="0",
                             vid=vid,
+                            info=info,
                             )
 
 @app.route('/uploads/videos/<filename>')
@@ -350,8 +352,10 @@ def converted_vickstube():
                 tm = 945
                 print("Sorry... Code couldn't be extracted !!!")
 
+    info = (None, None, None)
     try:
         com = ytc.comments(vid)
+        info = ytc.tvl(vid)
     except:
         com = {
             "Comments are...": ["Disabled by user !"],
@@ -396,6 +400,7 @@ def converted_vickstube():
                             title=title,
                             video_type=video_type,
                             pid = pid,
+                            info=info,
                             vid=vid,
                             )
 
