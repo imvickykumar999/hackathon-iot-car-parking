@@ -1,6 +1,6 @@
 # [IOT Car Parking](https://github.com/imvickykumar999/web2app#output) Android App
 
-## New Update : [Listen News](https://imvickykumar999.herokuapp.com/news) or, Download mp3 file.
+## New Update : [Listen News](https://imvickykumar999.herokuapp.com/news) or, Listen/Download [YouTube Playlist](https://imvickykumar999.herokuapp.com/vickstube?vix=https://www.youtube.com/watch?v=Ps4aVpIESkc&list=PL9bw4S5ePsEEqCMJSiYZ-KTtEjzVy0YvK) Audio/Video with OFF screen feature, [Payments](https://github.com/imvickykumar999/payments).
 
 [![image](https://user-images.githubusercontent.com/50515418/122228044-188a3a00-ced5-11eb-8e11-bb89e7a53282.png)](https://github.com/imvickykumar999/hackathon-iot-car-parking/blob/34987691a0549a0e0d205e2ad401b67a20824961/templates/ytc.html#L66)
 
