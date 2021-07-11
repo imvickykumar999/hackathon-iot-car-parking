@@ -307,6 +307,7 @@ def vickstube():
                             len = len(prefill),
                             title='None',
                             video_type="0",
+                            vidlist = 'empty',
                             vid=vid,
                             info=info,
                             )
@@ -325,6 +326,7 @@ def converted_vickstube():
     from vicks import ytc
     from youtube_search import YoutubeSearch
 
+    vidlist = 'empty'
     url = request.form['ytc']
     if url == '':
         url = 'https://www.youtube.com/watch?v=Cpc_rHf1U6g'
@@ -338,7 +340,12 @@ def converted_vickstube():
         tm=0
 
         if s[0] != 'https:':
-            vid = YoutubeSearch(s[0], max_results = 1).to_dict()[0]['id']
+            vidict = YoutubeSearch(s[0], max_results = 10).to_dict()
+            vidlist = []
+            for i in vidict:
+                vidlist.append(i['id'])
+            vid = vidlist[0]
+            # print('.....---------', vidlist)
 
         else:
             if s[2] == 'www.youtube.com':
@@ -392,14 +399,17 @@ def converted_vickstube():
     else:
         video_type = "P"
 
-    print(title, pid)
+    # print(title, pid)
+    print(vidlist)
     return render_template("ytc.html",
                             dict=com,
                             tm=tm,
                             ap=0,
                             title=title,
                             video_type=video_type,
+                            vidlist=vidlist,
                             pid = pid,
+                            range10=range(1,11),
                             info=info,
                             vid=vid,
                             )
