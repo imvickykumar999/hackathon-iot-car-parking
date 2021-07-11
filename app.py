@@ -307,7 +307,7 @@ def vickstube():
                             len = len(prefill),
                             title='None',
                             video_type="0",
-                            vidlist = 'empty',
+                            vidlist = [],
                             vid=vid,
                             info=info,
                             )
@@ -326,7 +326,7 @@ def converted_vickstube():
     from vicks import ytc
     from youtube_search import YoutubeSearch
 
-    vidlist = 'empty'
+    vidlist = []
     url = request.form['ytc']
     if url == '':
         url = 'https://www.youtube.com/watch?v=Cpc_rHf1U6g'

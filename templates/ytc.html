@@ -162,59 +162,6 @@
   </div>
 
   <br>
-
-  {% if vidlist != "empty" %}
-
-  <div class="jumbotron">
-    <div class="container">
-      <center>
-
-        <a class="btn btn-success" data-toggle="collapse" href="#collapsevideo" role="button" aria-expanded="false" aria-controls="collapseExample">
-          <h3>Click me for... <br>More Videos</h3>
-        </a>
-
-        <br><br><br>
-        <div class="collapse" id="collapsevideo">
-          {% for i in range10 %}
-
-          <div class="jumbotron-fluid">
-
-            <br><br>
-            <div class="class="video-container"">
-              <iframe
-                      src="https://www.youtube.com/embed/{{vidlist[i]}}"
-                      frameborder="0"
-                      width="720" height="405"
-                      allow="autoplay; encrypted-media" allowfullscreen>
-              </iframe>
-
-              <br><br>
-              <div class="alert alert-success" role="alert">
-                <strong>
-                  <a href="/vickstube?vix={{vidlist[i]}}">
-
-                    <h3 style="color:red;">
-                      Share Embedded Video
-                    </h3>
-
-                  </a>
-                </strong>
-              </div>
-            </div>
-
-          </div>
-          <br><br><br>
-
-        {% endfor %}
-        </div>
-
-      </center>
-    </div>
-  </div>
-  {% endif %}
-
-  <br><br>
-
   <div class="jumbotron jumbotron">
     <div class="container">
       <center>
@@ -504,6 +451,51 @@
 
       </div>
     </div>
+
+    {% if vidlist %}
+    <div class="jumbotron">
+      <div class="container">
+        <center>
+
+          <a class="btn btn-success" data-toggle="collapse" href="#collapsevideo" role="button" aria-expanded="false" aria-controls="collapseExample">
+            <h3>Click me for... <br>More Videos</h3>
+          </a>
+
+          <br><br>
+          <div class="collapse" id="collapsevideo">
+            {% for i in range10 %}
+
+              <br><br>
+              <div class="class="video-container"">
+                <iframe
+                        src="https://www.youtube.com/embed/{{vidlist[i]}}"
+                        frameborder="0"
+                        width="720" height="405"
+                        allow="autoplay; encrypted-media" allowfullscreen>
+                </iframe>
+
+                <br><br>
+                <div class="alert alert-success" role="alert">
+                  <strong>
+                    <a href="/vickstube?vix={{vidlist[i]}}">
+
+                      <h3 style="color:red;">
+                        Share Embedded Video [{{i}}]
+                      </h3>
+
+                    </a>
+                  </strong>
+                </div>
+              </div>
+            <br><br><br>
+
+          {% endfor %}
+          </div>
+
+        </center>
+      </div>
+    </div>
+    {% endif %}
 
 </body>
 </html>
