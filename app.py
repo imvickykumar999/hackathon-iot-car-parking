@@ -297,7 +297,7 @@ def vickstube():
     print('-------------> ', prefill)
     if len(prefill) == 11:
         vid = prefill
-        tm = request.args.get('t')
+        # tm = request.args.get('t')
         # https://youtu.be/KgbAStrUBNY?t=25
 
     from vicks import ytc
@@ -306,7 +306,7 @@ def vickstube():
 
     return render_template("ytc.html",
                             dict=dict,
-                            tm=945,
+                            tm=0,
                             ap=0,
                             prefill = prefill,
                             len = len(prefill),
