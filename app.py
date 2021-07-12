@@ -287,6 +287,7 @@ def converted_report():
 def vickstube():
 
     vid = 'Cpc_rHf1U6g'
+    tm=945
     prefill = request.args.get('list')
 
     if prefill == None:
@@ -297,7 +298,10 @@ def vickstube():
     print('-------------> ', prefill)
     if len(prefill) == 11:
         vid = prefill
-        # tm = request.args.get('t')
+        tm = request.args.get('t')
+        if tm==None:
+            tm=0
+        print(tm)
         # https://youtu.be/KgbAStrUBNY?t=25
 
     from vicks import ytc
@@ -306,7 +310,7 @@ def vickstube():
 
     return render_template("ytc.html",
                             dict=dict,
-                            tm=0,
+                            tm=tm,
                             ap=0,
                             prefill = prefill,
                             len = len(prefill),
