@@ -319,6 +319,7 @@ def vickstube():
                             vidlist = [],
                             vid=vid,
                             info=info,
+                            scroll='something',
                             )
 
 @app.route('/uploads/videos/<filename>')
