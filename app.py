@@ -293,7 +293,12 @@ def vickstube():
         prefill = request.args.get('vix')
         if prefill == None:
             prefill = ''
-    print(prefill)
+
+    print('-------------> ', prefill)
+    if len(prefill) == 11:
+        vid = prefill
+        tm = request.args.get('t')
+        # https://youtu.be/KgbAStrUBNY?t=25
 
     from vicks import ytc
     dict = ytc.comments(vid)
