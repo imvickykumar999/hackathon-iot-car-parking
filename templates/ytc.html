@@ -42,21 +42,23 @@
       </center>
     </div>
   </div>
+  <br>
 
-  <br><br>
+  <div id="something">
+    {% if scroll %}
+    <script>
+        document.location.hash = '#' + '{{ scroll }}';
+    </script>
+    {% endif %}
+  </div>
+  <br>
 
   <div class="jumbotron">
     <div class="container">
       <center>
 
-        {% if scroll %}
-        <script>
-            document.location.hash = '#' + '{{ scroll }}';
-        </script>
-        {% endif %}
-
         {% if video_type == "0" %}
-        <div id="something" class="class="video-container"">
+        <div class="class="video-container"">
           <iframe
                   src="https://www.youtube.com/embed/{{vid}}?autoplay={{ap}}&start={{tm}}&loop=1"
                   frameborder="0"
