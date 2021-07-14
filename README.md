@@ -34,6 +34,8 @@
 
 ## Download [my Car Remote Controller App](https://github.com/imvickykumar999/hackathon-iot-car-parking/raw/main/hackathon/NodeMCU_Car.apk)
 
+[![chrome extension](https://github.com/imvickykumar999/hackathon-iot-car-parking/blob/main/Chrome%20Extension/screenshot.jpg?raw=true)](https://github.com/imvickykumar999/hackathon-iot-car-parking/blob/main/Chrome%20Extension/manifest.json)
+
 ### Helpful Stackoverflow answers in this [this project](https://github.com/imvickykumar999/hackathon-iot-car-parking/blob/main/requirements.txt)...
   - https://stackoverflow.com/a/67429430/11493297
   - https://github.com/eventlet/eventlet/issues/702#issuecomment-833124692
