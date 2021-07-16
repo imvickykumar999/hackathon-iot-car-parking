@@ -572,18 +572,22 @@ def iotled():
     import multivicks.crud as c
     obj = c.vicks('@Hey_Vicks', 'Vicky', 'https://home-automation-336c0-default-rtdb.firebaseio.com/')
     result1 = obj.pull('A/B/C/Switch')
+    if result1 == '':
+        result1 = None
 
     data1="{}".format(result1)
-    # print(data1)
+    print(data1)
 
     if data1 == '1':
         img = 'static/logo/bulbon.jpg'
-    else:
+    elif data1 == '0':
         img = 'static/logo/bulboff.jpg'
+    else:
+        img = 'static/logo/error.png'
 
     return render_template("iotled.html",
                             data=data1,
-                            img = img
+                            img = img,
                           )
 
 
@@ -595,7 +599,11 @@ def converted_iotled():
     credentials = request.form['credentials']
     obj = c.vicks(credentials, 'Vicky', 'https://home-automation-336c0-default-rtdb.firebaseio.com/')
 
-    data = int(request.form['iotled'])
+    data = request.form['iotled']
+    if data == '':
+        data = None
+    else:
+        data = int(data)
     obj.push(data, 'A/B/C/Switch')
 
     result1 = obj.pull('A/B/C/Switch')
@@ -604,12 +612,14 @@ def converted_iotled():
 
     if data1 == '1':
         img = 'static/logo/bulbon.jpg'
-    else:
+    elif data1 == '0':
         img = 'static/logo/bulboff.jpg'
+    else:
+        img = 'static/logo/error.png'
 
     return render_template("iotled.html",
                             data=data1,
-                            img = img
+                            img = img,
                           )
 
 # --------------------------------------------

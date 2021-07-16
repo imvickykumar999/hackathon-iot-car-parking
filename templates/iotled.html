@@ -57,7 +57,7 @@
 
                       <a href="https://github.com/imvickykumar999/esp8266-iot-led-android" class="btn btn-primary">Switched ON</a>
 
-                  {% else %}
+                  {% elif data == '0' %}
 
                   <a href="https://github.com/imvickykumar999/esp8266-iot-led-android">
                     <img src={{img}} alt="switch">
@@ -71,6 +71,22 @@
                   <br>
 
                       <a href="https://github.com/imvickykumar999/esp8266-iot-led-android" class="btn btn-primary">Switched OFF</a>
+
+                  {% else %}
+
+                  <a href="https://github.com/imvickykumar999/esp8266-iot-led-android">
+                    <img src={{img}} alt="switch">
+                  </a>
+
+                  <h1 style="color:red;" class="card-title">Bulb</h1>
+                  <br>
+                    <h3>
+                      <p class="card-text">Wrong Credentials</p>
+                    </h3>
+                  <br>
+
+                      <a href="https://github.com/imvickykumar999/esp8266-iot-led-android" class="btn btn-primary">Switched OFF</a>
+
                   {% endif %}
 
                 </div>
