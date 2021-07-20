@@ -69,6 +69,12 @@ def allowed_file(filename):
 
 # ====================================================================================
 
+@app.route("/handwriting")
+def handwriting():
+    import os
+    os.system('python handwriting/handwrite.py --text-file handwriting/Example/test.txt --output handwriting/Example/test.pdf')
+    return render_template('handwriting.html')
+
 
 @app.route("/covid19")
 def covid19():
