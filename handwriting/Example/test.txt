@@ -1,2 +1,14 @@
-Problem Definition: Write an 8051 Program to -
-Transfer the block from
+Name : Vicky Kumar
+Roll. No.: 18ERECS080
+Date: 20 July, 2021
+
+Ans 1).
+
+GitHub launched a technical preview of a new AI-powered pair programming tool that aims to help software developers write better code across a variety of programming languages, including Python, JavaScript, TypeScript, Ruby, and Go. Copilot,the name given to it is called, has been developed in collaboration with OpenAI, and leverages Codex.
+
+GitHub CEO Nat Friedman said in a blog post that GitHub Copilot draws context from the code you’re working on, suggesting whole lines or entire functions. It helps you quickly discover alternative ways to solve problems, write tests, and explore new APIs without having to tediously tailor a search for answers on the internet. Copilot is not designed to write code on behalf of the developer, while noting that users can cycle through alternative suggestions and manually edit suggested code.
+
+Ans 2).
+The code suggestions are based on a selection of English language and source code from publicly available repositories on GitHub. The company also made it a point to explicitly put out the security consequences that may arise out of relying on low-quality code from the training set, leading to 'insecure coding patterns, bugs, or references to outdated APIs or idioms.'
+
+It said that the code autofilled by Copilot is largely unique, with a test performed by GitHub finding that only 0.1 per cent of generated code could be found verbatim in the training set. GitHub Copilot is currently available as an extension for Microsoft’s cross-platform code editor Visual Studio Code, both locally on the machine or in the cloud on GitHub Codespaces.

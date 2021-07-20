@@ -224,7 +224,7 @@ def generate(args_text, args, sess, translation, text_color=[0, 0, 0]):
                 print("Colouring text...", flush=True)
                 figfile1 = add_color(text_color, figfile)
                 print("Saving image...", flush=True)
-                image_out = 'pages/page{}.png'.format(curr_page)
+                image_out = 'handwriting/pages/page{}.png'.format(curr_page)
                 with open(image_out, 'wb') as fl:
                     for x in figfile1:
                         fl.write(x)
@@ -233,7 +233,7 @@ def generate(args_text, args, sess, translation, text_color=[0, 0, 0]):
                 img.load()
                 img = img.resize((int(img.size[0] * 0.8), int(img.size[1] * 0.804)), Image.ANTIALIAS)
                 # background = Image.new("RGB", img.size, (255, 255, 255))
-                background = Image.open('blank_page.jpg')
+                background = Image.open('handwriting/pages/blank_page.jpg')
                 background.load()
                 background.paste(img, mask=img.split()[3], box=(30, 220))  # 3 is the alpha channel
                 background.save(image_out.replace('.png', '.jpg'), 'JPEG', quality=100)
